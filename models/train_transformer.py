@@ -1,0 +1,347 @@
+﻿"""
+models/train_transformer.py
+-----------------------------
+Training and evaluation script for the Attention-based Transformer
+sentiment classifier.
+
+Trains the SentimentTransformer model, tracks metrics per epoch,
+evaluates on the test set, and saves all results to results/.
+
+Author : Aryan Sorout
+Project : ICT 4442 - Deep Learning Mini Project
+
+Usage:
+    python models/train_transformer.py --data_path data/reviews.csv
+"""
+
+import os
+import sys
+import time
+import argparse
+import json
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader, TensorDataset
+from sklearn.metrics import (
+    accuracy_score, precision_recall_fscore_support,
+    confusion_matrix, classification_report
+)
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from utils.preprocessing import run_preprocessing_pipeline
+from models.model_transformer import SentimentTransformer, count_parameters
+
+
+# ─────────────────────────────────────────────
+# HYPERPARAMETERS
+# ─────────────────────────────────────────────
+CONFIG = {
+    "embed_dim"    : 128,
+    "num_heads"    : 4,
+    "num_layers"   : 2,
+    "ffn_dim"      : 256,
+    "dropout_rate" : 0.3,
+    "num_classes"  : 3,
+    "batch_size"   : 64,
+    "epochs"       : 15,
+    "lr"           : 5e-4,
+    "weight_decay" : 1e-4,
+    "warmup_steps" : 200,
+    "sample_size"  : 50000,
+    "max_vocab"    : 20000,
+    "max_seq_len"  : 200,
+}
+
+DEVICE      = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+RESULTS_DIR = "results"
+os.makedirs(RESULTS_DIR, exist_ok=True)
+
+
+# ─────────────────────────────────────────────
+# WARMUP LEARNING RATE SCHEDULER
+# ─────────────────────────────────────────────
+class WarmupScheduler(torch.optim.lr_scheduler._LRScheduler):
+    """
+    Linear warmup for the first warmup_steps steps, then cosine decay.
+    Warmup is important for Transformer training stability.
+    """
+    def __init__(self, optimizer, warmup_steps: int, last_epoch: int = -1):
+        self.warmup_steps = warmup_steps
+        super().__init__(optimizer, last_epoch)
+
+    def get_lr(self):
+        step = max(1, self.last_epoch)
+        if step < self.warmup_steps:
+            return [base_lr * step / self.warmup_steps for base_lr in self.base_lrs]
+        return self.base_lrs
+
+
+# ─────────────────────────────────────────────
+# DATA LOADERS
+# ─────────────────────────────────────────────
+def make_loaders(data):
+    def to_loader(X, y, shuffle=False):
+        X_t = torch.tensor(X, dtype=torch.long)
+        y_t = torch.tensor(y, dtype=torch.long)
+        ds  = TensorDataset(X_t, y_t)
+        return DataLoader(ds, batch_size=CONFIG["batch_size"],
+                          shuffle=shuffle, pin_memory=True)
+
+    return (
+        to_loader(data["X_train"], data["y_train"], shuffle=True),
+        to_loader(data["X_val"],   data["y_val"]),
+        to_loader(data["X_test"],  data["y_test"]),
+    )
+
+
+# ─────────────────────────────────────────────
+# TRAIN ONE EPOCH
+# ─────────────────────────────────────────────
+def train_epoch(model, loader, optimizer, criterion, scheduler):
+    model.train()
+    total_loss, correct, total = 0.0, 0, 0
+
+    for X_batch, y_batch in loader:
+        X_batch, y_batch = X_batch.to(DEVICE), y_batch.to(DEVICE)
+
+        optimizer.zero_grad()
+        logits = model(X_batch)
+        loss   = criterion(logits, y_batch)
+        loss.backward()
+
+        # Gradient clipping for training stability
+        nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+
+        optimizer.step()
+        scheduler.step()
+
+        total_loss += loss.item() * X_batch.size(0)
+        preds       = logits.argmax(dim=1)
+        correct    += (preds == y_batch).sum().item()
+        total      += X_batch.size(0)
+
+    return total_loss / total, correct / total
+
+
+# ─────────────────────────────────────────────
+# EVALUATE
+# ─────────────────────────────────────────────
+def evaluate(model, loader, criterion):
+    model.eval()
+    total_loss, correct, total = 0.0, 0, 0
+
+    with torch.no_grad():
+        for X_batch, y_batch in loader:
+            X_batch, y_batch = X_batch.to(DEVICE), y_batch.to(DEVICE)
+            logits = model(X_batch)
+            loss   = criterion(logits, y_batch)
+
+            total_loss += loss.item() * X_batch.size(0)
+            preds       = logits.argmax(dim=1)
+            correct    += (preds == y_batch).sum().item()
+            total      += X_batch.size(0)
+
+    return total_loss / total, correct / total
+
+
+# ─────────────────────────────────────────────
+# FULL TEST EVALUATION
+# ─────────────────────────────────────────────
+def full_evaluation(model, loader, label_encoder):
+    model.eval()
+    all_preds, all_labels = [], []
+
+    start = time.time()
+    with torch.no_grad():
+        for X_batch, y_batch in loader:
+            X_batch = X_batch.to(DEVICE)
+            preds   = model(X_batch).argmax(dim=1).cpu().numpy()
+            all_preds.extend(preds)
+            all_labels.extend(y_batch.numpy())
+    pred_time = time.time() - start
+
+    all_preds  = np.array(all_preds)
+    all_labels = np.array(all_labels)
+
+    acc              = accuracy_score(all_labels, all_preds)
+    prec, rec, f1, _ = precision_recall_fscore_support(
+        all_labels, all_preds, average="macro", zero_division=0
+    )
+    cm     = confusion_matrix(all_labels, all_preds)
+    report = classification_report(
+        all_labels, all_preds,
+        target_names=label_encoder.classes_, zero_division=0
+    )
+
+    return {
+        "accuracy"      : round(acc,  4),
+        "precision"     : round(prec, 4),
+        "recall"        : round(rec,  4),
+        "f1_score"      : round(f1,   4),
+        "pred_time_sec" : round(pred_time, 4),
+        "report"        : report,
+        "cm_array"      : cm,
+    }
+
+
+# ─────────────────────────────────────────────
+# SAVE PLOTS
+# ─────────────────────────────────────────────
+def save_confusion_matrix(cm, class_names, save_path):
+    plt.figure(figsize=(7, 5))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Oranges",
+                xticklabels=class_names, yticklabels=class_names)
+    plt.title("Transformer — Confusion Matrix (Test Set)")
+    plt.ylabel("True Label")
+    plt.xlabel("Predicted Label")
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150)
+    plt.close()
+    print(f"[INFO] Confusion matrix saved: {save_path}")
+
+
+def save_training_curves(history, save_path):
+    epochs = range(1, len(history["train_loss"]) + 1)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+    ax1.plot(epochs, history["train_loss"], label="Train Loss")
+    ax1.plot(epochs, history["val_loss"],   label="Val Loss")
+    ax1.set_title("Transformer — Loss")
+    ax1.set_xlabel("Epoch"); ax1.set_ylabel("Loss"); ax1.legend()
+
+    ax2.plot(epochs, history["train_acc"], label="Train Acc")
+    ax2.plot(epochs, history["val_acc"],   label="Val Acc")
+    ax2.set_title("Transformer — Accuracy")
+    ax2.set_xlabel("Epoch"); ax2.set_ylabel("Accuracy"); ax2.legend()
+
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150)
+    plt.close()
+    print(f"[INFO] Training curves saved: {save_path}")
+
+
+# ─────────────────────────────────────────────
+# MAIN TRAINING LOOP
+# ─────────────────────────────────────────────
+def train(data_path: str):
+    print(f"\n[INFO] Device : {DEVICE}")
+    print(f"[INFO] Config : {CONFIG}\n")
+
+    # 1. Preprocess
+    data = run_preprocessing_pipeline(
+        filepath    = data_path,
+        sample_size = CONFIG["sample_size"],
+        max_vocab   = CONFIG["max_vocab"],
+        max_seq_len = CONFIG["max_seq_len"],
+    )
+    train_loader, val_loader, test_loader = make_loaders(data)
+
+    # 2. Build model
+    model = SentimentTransformer(
+        vocab_size   = data["vocab_size"],
+        embed_dim    = CONFIG["embed_dim"],
+        num_heads    = CONFIG["num_heads"],
+        num_layers   = CONFIG["num_layers"],
+        ffn_dim      = CONFIG["ffn_dim"],
+        num_classes  = CONFIG["num_classes"],
+        dropout_rate = CONFIG["dropout_rate"],
+        max_seq_len  = CONFIG["max_seq_len"] + 1,  # +1 for CLS token
+    ).to(DEVICE)
+
+    print(f"[INFO] Model parameters: {count_parameters(model):,}\n")
+
+    criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.AdamW(
+        model.parameters(), lr=CONFIG["lr"], weight_decay=CONFIG["weight_decay"]
+    )
+    # Linear warmup scheduler - important for Transformer stability
+    scheduler = WarmupScheduler(optimizer, warmup_steps=CONFIG["warmup_steps"])
+
+    # 3. Training loop
+    history         = {"train_loss": [], "val_loss": [], "train_acc": [], "val_acc": []}
+    best_val_acc    = 0.0
+    best_model_path = os.path.join(RESULTS_DIR, "transformer_best.pt")
+    train_start     = time.time()
+
+    print("─" * 65)
+    print(f"{'Epoch':>6} {'Train Loss':>12} {'Train Acc':>10} {'Val Loss':>10} {'Val Acc':>9}")
+    print("─" * 65)
+
+    for epoch in range(1, CONFIG["epochs"] + 1):
+        tr_loss, tr_acc = train_epoch(model, train_loader, optimizer, criterion, scheduler)
+        vl_loss, vl_acc = evaluate(model, val_loader, criterion)
+
+        history["train_loss"].append(tr_loss)
+        history["val_loss"].append(vl_loss)
+        history["train_acc"].append(tr_acc)
+        history["val_acc"].append(vl_acc)
+
+        print(f"{epoch:>6} {tr_loss:>12.4f} {tr_acc:>10.4f} {vl_loss:>10.4f} {vl_acc:>9.4f}")
+
+        if vl_acc > best_val_acc:
+            best_val_acc = vl_acc
+            torch.save(model.state_dict(), best_model_path)
+
+    total_train_time = time.time() - train_start
+    print("─" * 65)
+    print(f"[INFO] Training done in {total_train_time:.2f}s | Best Val Acc: {best_val_acc:.4f}\n")
+
+    # 4. Test evaluation
+    model.load_state_dict(torch.load(best_model_path, map_location=DEVICE))
+    metrics = full_evaluation(model, test_loader, data["label_encoder"])
+
+    print("=" * 50)
+    print("  Transformer — TEST SET RESULTS")
+    print("=" * 50)
+    print(f"  Accuracy  : {metrics['accuracy']}")
+    print(f"  Precision : {metrics['precision']}  (macro)")
+    print(f"  Recall    : {metrics['recall']}  (macro)")
+    print(f"  F1-Score  : {metrics['f1_score']}  (macro)")
+    print(f"  Pred Time : {metrics['pred_time_sec']}s")
+    print(f"  Train Time: {round(total_train_time, 2)}s")
+    print("=" * 50)
+    print("\nClassification Report:\n")
+    print(metrics["report"])
+
+    # 5. Save results
+    results_summary = {
+        "model"          : "Transformer",
+        "accuracy"       : metrics["accuracy"],
+        "precision"      : metrics["precision"],
+        "recall"         : metrics["recall"],
+        "f1_score"       : metrics["f1_score"],
+        "train_time_sec" : round(total_train_time, 2),
+        "pred_time_sec"  : metrics["pred_time_sec"],
+        "config"         : CONFIG,
+    }
+
+    results_path = os.path.join(RESULTS_DIR, "transformer_results.json")
+    with open(results_path, "w") as f:
+        json.dump(results_summary, f, indent=4)
+    print(f"[INFO] Results saved: {results_path}")
+
+    save_confusion_matrix(
+        metrics["cm_array"],
+        class_names = list(data["label_encoder"].classes_),
+        save_path   = os.path.join(RESULTS_DIR, "transformer_confusion_matrix.png"),
+    )
+    save_training_curves(
+        history,
+        save_path = os.path.join(RESULTS_DIR, "transformer_training_curves.png"),
+    )
+    print("\n[INFO] All results saved to results/ folder.")
+
+
+# ─────────────────────────────────────────────
+# ENTRY POINT
+# ─────────────────────────────────────────────
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Train Transformer sentiment classifier")
+    parser.add_argument("--data_path", type=str, required=True,
+                        help="Path to the Amazon reviews CSV or JSON file")
+    args = parser.parse_args()
+    train(args.data_path)
