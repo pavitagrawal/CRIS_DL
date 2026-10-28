@@ -88,7 +88,7 @@ class BiLSTM(nn.Module):
         nn.init.xavier_uniform_(self.attention.weight)
         nn.init.zeros_(self.attention.bias)
 
-    def attention_pool(self, lstm_out: torch.Tensor) -> torch.Tensor:
+    def attention_pool(self, lstm_out: torch.Tensor, mask=None) -> torch.Tensor:
         """
         Soft attention over BiLSTM hidden states.
 
@@ -103,6 +103,8 @@ class BiLSTM(nn.Module):
         """
         # (batch, seq_len, 1)
         scores = self.attention(lstm_out)
+        if mask is not None:
+            scores = scores.masked_fill(~mask.unsqueeze(-1), torch.finfo(scores.dtype).min)
 
         # Normalise across the sequence dimension
         weights = F.softmax(scores, dim=1)           # (batch, seq_len, 1)
@@ -128,7 +130,7 @@ class BiLSTM(nn.Module):
         lstm_out, _ = self.bilstm(embedded)
 
         # Attention pooling → (batch, 2*hidden_dim)
-        context = self.attention_pool(lstm_out)
+        context = self.attention_pool(lstm_out, x != self.embedding.padding_idx)
 
         # Dropout + classification
         out    = self.dropout(context)

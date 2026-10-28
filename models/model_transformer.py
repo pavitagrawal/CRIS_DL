@@ -176,7 +176,9 @@ class SentimentTransformer(nn.Module):
 
         # Pass through Transformer encoder layers
         # (batch, seq_len+1, embed_dim)
-        encoded = self.transformer_encoder(embedded)
+        padding_mask = torch.cat((torch.zeros((batch_size, 1), dtype=torch.bool, device=x.device),
+                                  x == self.embedding.padding_idx), dim=1)
+        encoded = self.transformer_encoder(embedded, src_key_padding_mask=padding_mask)
 
         # Extract [CLS] token representation (position 0)
         # (batch, embed_dim)
