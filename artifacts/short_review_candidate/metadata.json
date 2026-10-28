@@ -1,0 +1,19 @@
+{
+  "source": "data/amazon_50k_multicategory",
+  "split_seed": 20261021,
+  "split_sizes": {
+    "train": 35000,
+    "validation": 7500,
+    "test": 7500
+  },
+  "tokenizer_fit": "training only",
+  "vocabulary_limit": 20000,
+  "sequence_length": 200,
+  "model_source": "team repository commit 6221161, with padding-mask fixes to MLP, BiLSTM, Transformer",
+  "selection": "validation macro F1",
+  "winner": "BiLSTM",
+  "note": "deployed PyTorch BiLSTM derived from the winning four-category checkpoint and later fine-tuned",
+  "model_seed": 42,
+  "fine_tuned_from": "short-review checkpoint preceding Yelp fine-tuning",
+  "yelp_training_rows": 597
+}

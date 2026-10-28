@@ -1,0 +1,176 @@
+{
+  "source": "SemEval 2014 Task 4 Laptop_Train_v2.xml",
+  "split": "70/15/15 by sentence, seed 42; conflict polarity excluded",
+  "training_sentences_used_for_keyword_selection": 1023,
+  "validation": {
+    "baseline": {
+      "gold_terms": 368,
+      "gold_terms_found": 78,
+      "predicted_mentions": 95,
+      "predicted_mentions_matched": 78,
+      "mention_precision": 0.8210526315789474,
+      "gold_term_recall": 0.21195652173913043,
+      "mention_f1": 0.3369330453563715,
+      "matched_mentions_by_aspect": {
+        "Battery": 24,
+        "Customer support": 13,
+        "Price": 11,
+        "Screen": 8,
+        "Performance": 7,
+        "Design": 7,
+        "Quality": 3,
+        "Sound": 3,
+        "Delivery": 1,
+        "Camera": 1
+      }
+    },
+    "expanded": {
+      "gold_terms": 368,
+      "gold_terms_found": 206,
+      "predicted_mentions": 244,
+      "predicted_mentions_matched": 206,
+      "mention_precision": 0.8442622950819673,
+      "gold_term_recall": 0.5597826086956522,
+      "mention_f1": 0.673202614379085,
+      "matched_mentions_by_aspect": {
+        "Software": 42,
+        "Battery": 27,
+        "Keyboard": 17,
+        "Storage": 16,
+        "Touchpad": 14,
+        "Customer support": 13,
+        "Price": 11,
+        "Features": 10,
+        "Screen": 8,
+        "Warranty": 8,
+        "Performance": 7,
+        "Connectivity": 7,
+        "Design": 7,
+        "Graphics": 6,
+        "Sound": 5,
+        "Quality": 3,
+        "Portability": 3,
+        "Delivery": 1,
+        "Camera": 1
+      }
+    }
+  },
+  "test": {
+    "baseline": {
+      "gold_terms": 332,
+      "gold_terms_found": 86,
+      "predicted_mentions": 102,
+      "predicted_mentions_matched": 86,
+      "mention_precision": 0.8431372549019608,
+      "gold_term_recall": 0.25903614457831325,
+      "mention_f1": 0.39631336405529954,
+      "matched_mentions_by_aspect": {
+        "Battery": 22,
+        "Screen": 14,
+        "Price": 12,
+        "Customer support": 12,
+        "Performance": 10,
+        "Quality": 7,
+        "Design": 4,
+        "Delivery": 2,
+        "Camera": 2,
+        "Sound": 1
+      }
+    },
+    "expanded": {
+      "gold_terms": 332,
+      "gold_terms_found": 198,
+      "predicted_mentions": 221,
+      "predicted_mentions_matched": 198,
+      "mention_precision": 0.8959276018099548,
+      "gold_term_recall": 0.5963855421686747,
+      "mention_f1": 0.7160940325497288,
+      "matched_mentions_by_aspect": {
+        "Software": 35,
+        "Battery": 25,
+        "Screen": 14,
+        "Warranty": 12,
+        "Price": 12,
+        "Customer support": 12,
+        "Storage": 10,
+        "Performance": 10,
+        "Features": 9,
+        "Touchpad": 9,
+        "Keyboard": 8,
+        "Portability": 8,
+        "Connectivity": 8,
+        "Graphics": 8,
+        "Quality": 7,
+        "Design": 4,
+        "Sound": 3,
+        "Delivery": 2,
+        "Camera": 2
+      }
+    }
+  },
+  "polarity_validation": {
+    "baseline": {
+      "gold_terms": 368,
+      "covered_with_clause": 76,
+      "correct_polarity_among_covered": 49,
+      "explicit_cue_uses": 0,
+      "explicit_cue_correct": 0,
+      "covered_accuracy": 0.6447368421052632,
+      "covered_macro_f1": 0.5660306771417882,
+      "correct_detected_polarity_per_gold_term": 0.1331521739130435
+    },
+    "expanded": {
+      "gold_terms": 368,
+      "covered_with_clause": 203,
+      "correct_polarity_among_covered": 114,
+      "explicit_cue_uses": 0,
+      "explicit_cue_correct": 0,
+      "covered_accuracy": 0.5615763546798029,
+      "covered_macro_f1": 0.5340045810811579,
+      "correct_detected_polarity_per_gold_term": 0.30978260869565216
+    },
+    "expanded_with_cues": {
+      "gold_terms": 368,
+      "covered_with_clause": 203,
+      "correct_polarity_among_covered": 118,
+      "explicit_cue_uses": 44,
+      "explicit_cue_correct": 39,
+      "covered_accuracy": 0.5812807881773399,
+      "covered_macro_f1": 0.5414099157172801,
+      "correct_detected_polarity_per_gold_term": 0.32065217391304346
+    }
+  },
+  "polarity_test": {
+    "baseline": {
+      "gold_terms": 332,
+      "covered_with_clause": 86,
+      "correct_polarity_among_covered": 54,
+      "explicit_cue_uses": 0,
+      "explicit_cue_correct": 0,
+      "covered_accuracy": 0.627906976744186,
+      "covered_macro_f1": 0.5204825137409407,
+      "correct_detected_polarity_per_gold_term": 0.16265060240963855
+    },
+    "expanded": {
+      "gold_terms": 332,
+      "covered_with_clause": 198,
+      "correct_polarity_among_covered": 119,
+      "explicit_cue_uses": 0,
+      "explicit_cue_correct": 0,
+      "covered_accuracy": 0.601010101010101,
+      "covered_macro_f1": 0.5436213991769547,
+      "correct_detected_polarity_per_gold_term": 0.35843373493975905
+    },
+    "expanded_with_cues": {
+      "gold_terms": 332,
+      "covered_with_clause": 198,
+      "correct_polarity_among_covered": 123,
+      "explicit_cue_uses": 39,
+      "explicit_cue_correct": 36,
+      "covered_accuracy": 0.6212121212121212,
+      "covered_macro_f1": 0.5592993782481128,
+      "correct_detected_polarity_per_gold_term": 0.3704819277108434
+    }
+  },
+  "limits": "One-to-one term span overlap measures detection, not semantic category correctness. Polarity compares the beauty-trained clause model plus battery phrases with a conservative general cue rule. Uncovered terms are not scored as having a sentiment. The laptop test had previously been inspected."
+}

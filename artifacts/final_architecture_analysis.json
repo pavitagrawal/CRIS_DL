@@ -1,0 +1,261 @@
+{
+  "source": "artifacts/submitted_50k_comparison/results.json",
+  "selection_rule": "highest validation macro F1",
+  "selected_model": "BiLSTM",
+  "models": [
+    {
+      "model": "MLP",
+      "selected_epoch": 5,
+      "validation_macro_f1": 0.606205195291542,
+      "test_accuracy": 0.6113333333333333,
+      "test_macro_f1": 0.6114734945510478,
+      "training_seconds": 14.293381114999647,
+      "prediction_seconds": 0.07212467300269054,
+      "class_metrics": [
+        {
+          "label": "negative",
+          "support": 2500,
+          "correct": 1563,
+          "errors": 937,
+          "precision": 0.612460815047022,
+          "recall": 0.6252,
+          "f1": 0.6187648456057008,
+          "share_of_all_errors": 0.32144082332761575
+        },
+        {
+          "label": "neutral",
+          "support": 2500,
+          "correct": 1278,
+          "errors": 1222,
+          "precision": 0.5136655948553055,
+          "recall": 0.5112,
+          "f1": 0.5124298315958299,
+          "share_of_all_errors": 0.41921097770154375
+        },
+        {
+          "label": "positive",
+          "support": 2500,
+          "correct": 1744,
+          "errors": 756,
+          "precision": 0.7089430894308943,
+          "recall": 0.6976,
+          "f1": 0.7032258064516129,
+          "share_of_all_errors": 0.2593481989708405
+        }
+      ],
+      "largest_confusions": [
+        {
+          "actual": "neutral",
+          "predicted": "negative",
+          "count": 765
+        },
+        {
+          "actual": "negative",
+          "predicted": "neutral",
+          "count": 678
+        },
+        {
+          "actual": "positive",
+          "predicted": "neutral",
+          "count": 532
+        }
+      ]
+    },
+    {
+      "model": "TextCNN",
+      "selected_epoch": 5,
+      "validation_macro_f1": 0.6064741061998467,
+      "test_accuracy": 0.6201333333333333,
+      "test_macro_f1": 0.6156595570425837,
+      "training_seconds": 215.3344587629981,
+      "prediction_seconds": 3.2189650290019927,
+      "class_metrics": [
+        {
+          "label": "negative",
+          "support": 2500,
+          "correct": 1733,
+          "errors": 767,
+          "precision": 0.5986183074265976,
+          "recall": 0.6932,
+          "f1": 0.6424467099165895,
+          "share_of_all_errors": 0.26921726921726924
+        },
+        {
+          "label": "neutral",
+          "support": 2500,
+          "correct": 1138,
+          "errors": 1362,
+          "precision": 0.5545808966861598,
+          "recall": 0.4552,
+          "f1": 0.5,
+          "share_of_all_errors": 0.47806247806247804
+        },
+        {
+          "label": "positive",
+          "support": 2500,
+          "correct": 1780,
+          "errors": 720,
+          "precision": 0.6972189580885233,
+          "recall": 0.712,
+          "f1": 0.7045319612111616,
+          "share_of_all_errors": 0.2527202527202527
+        }
+      ],
+      "largest_confusions": [
+        {
+          "actual": "neutral",
+          "predicted": "negative",
+          "count": 881
+        },
+        {
+          "actual": "neutral",
+          "predicted": "positive",
+          "count": 481
+        },
+        {
+          "actual": "negative",
+          "predicted": "neutral",
+          "count": 475
+        }
+      ]
+    },
+    {
+      "model": "BiLSTM",
+      "selected_epoch": 5,
+      "validation_macro_f1": 0.6803362433297981,
+      "test_accuracy": 0.6770666666666667,
+      "test_macro_f1": 0.6767193975055381,
+      "training_seconds": 1096.4871287069982,
+      "prediction_seconds": 14.120373987003404,
+      "class_metrics": [
+        {
+          "label": "negative",
+          "support": 2500,
+          "correct": 1794,
+          "errors": 706,
+          "precision": 0.6669144981412639,
+          "recall": 0.7176,
+          "f1": 0.691329479768786,
+          "share_of_all_errors": 0.29149463253509494
+        },
+        {
+          "label": "neutral",
+          "support": 2500,
+          "correct": 1384,
+          "errors": 1116,
+          "precision": 0.5766666666666667,
+          "recall": 0.5536,
+          "f1": 0.5648979591836736,
+          "share_of_all_errors": 0.4607762180016515
+        },
+        {
+          "label": "positive",
+          "support": 2500,
+          "correct": 1900,
+          "errors": 600,
+          "precision": 0.7883817427385892,
+          "recall": 0.76,
+          "f1": 0.7739307535641547,
+          "share_of_all_errors": 0.2477291494632535
+        }
+      ],
+      "largest_confusions": [
+        {
+          "actual": "neutral",
+          "predicted": "negative",
+          "count": 744
+        },
+        {
+          "actual": "negative",
+          "predicted": "neutral",
+          "count": 568
+        },
+        {
+          "actual": "positive",
+          "predicted": "neutral",
+          "count": 448
+        }
+      ]
+    },
+    {
+      "model": "Transformer",
+      "selected_epoch": 4,
+      "validation_macro_f1": 0.3942352263070823,
+      "test_accuracy": 0.3957333333333333,
+      "test_macro_f1": 0.39067015812489725,
+      "training_seconds": 1042.374365096999,
+      "prediction_seconds": 8.199617634993047,
+      "class_metrics": [
+        {
+          "label": "negative",
+          "support": 2500,
+          "correct": 701,
+          "errors": 1799,
+          "precision": 0.3944850872256612,
+          "recall": 0.2804,
+          "f1": 0.3277998597147533,
+          "share_of_all_errors": 0.396954986760812
+        },
+        {
+          "label": "neutral",
+          "support": 2500,
+          "correct": 1242,
+          "errors": 1258,
+          "precision": 0.38238916256157635,
+          "recall": 0.4968,
+          "f1": 0.4321503131524008,
+          "share_of_all_errors": 0.27758164165931154
+        },
+        {
+          "label": "positive",
+          "support": 2500,
+          "correct": 1025,
+          "errors": 1475,
+          "precision": 0.41414141414141414,
+          "recall": 0.41,
+          "f1": 0.4120603015075377,
+          "share_of_all_errors": 0.3254633715798764
+        }
+      ],
+      "largest_confusions": [
+        {
+          "actual": "negative",
+          "predicted": "neutral",
+          "count": 1011
+        },
+        {
+          "actual": "positive",
+          "predicted": "neutral",
+          "count": 995
+        },
+        {
+          "actual": "negative",
+          "predicted": "positive",
+          "count": 788
+        }
+      ]
+    }
+  ],
+  "selected_model_error_summary": {
+    "weakest_recall_class": "neutral",
+    "weakest_recall": 0.5536,
+    "largest_confusions": [
+      {
+        "actual": "neutral",
+        "predicted": "negative",
+        "count": 744
+      },
+      {
+        "actual": "negative",
+        "predicted": "neutral",
+        "count": 568
+      },
+      {
+        "actual": "positive",
+        "predicted": "neutral",
+        "count": 448
+      }
+    ],
+    "interpretation": "Neutral reviews remain the main failure mode. Rating-derived labels can disagree with the review text, so the confusion counts measure agreement with rating proxies rather than perfect human sentiment ground truth."
+  }
+}

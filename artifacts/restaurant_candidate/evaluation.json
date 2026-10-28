@@ -1,0 +1,357 @@
+{
+  "source": "SemEval 2014 Restaurants_Train_v2.xml, unanimous non-conflict aspect polarities used as sentence proxy labels",
+  "limitations": "Aspect labels are not independently judged overall sentence labels. Mixed-aspect and unlabeled sentences are excluded. Restaurant Phase B has no polarity gold in this archive. Restaurant test is untouched by model selection, but the corpus has been inspected during aspect development.",
+  "seed": 45,
+  "excluded": {
+    "mixed_aspects_excluded": 314,
+    "no_usable_aspect_or_conflict": 1104,
+    "duplicate_or_empty": 2
+  },
+  "split_sizes": {
+    "train": 1134,
+    "validation": 243,
+    "test": 244
+  },
+  "split_labels": {
+    "train": {
+      "neutral": 166,
+      "negative": 227,
+      "positive": 741
+    },
+    "validation": {
+      "neutral": 36,
+      "negative": 48,
+      "positive": 159
+    },
+    "test": {
+      "positive": 159,
+      "negative": 49,
+      "neutral": 36
+    }
+  },
+  "baseline": {
+    "restaurant_validation": {
+      "accuracy": 0.588477366255144,
+      "macro_f1": 0.4722891189233729,
+      "neutral_recall": 0.2222222222222222,
+      "confusion": [
+        [
+          29,
+          10,
+          9
+        ],
+        [
+          21,
+          8,
+          7
+        ],
+        [
+          44,
+          9,
+          106
+        ]
+      ]
+    },
+    "restaurant_test": {
+      "accuracy": 0.6065573770491803,
+      "macro_f1": 0.48434130988933805,
+      "neutral_recall": 0.19444444444444445,
+      "confusion": [
+        [
+          33,
+          8,
+          8
+        ],
+        [
+          20,
+          7,
+          9
+        ],
+        [
+          43,
+          8,
+          108
+        ]
+      ]
+    },
+    "product_validation": {
+      "accuracy": 0.6753333333333333,
+      "macro_f1": 0.6728822434770353,
+      "neutral_recall": 0.5216,
+      "confusion": [
+        [
+          1810,
+          541,
+          149
+        ],
+        [
+          793,
+          1304,
+          403
+        ],
+        [
+          161,
+          388,
+          1951
+        ]
+      ]
+    },
+    "product_test": {
+      "accuracy": 0.6758666666666666,
+      "macro_f1": 0.6726204011497572,
+      "neutral_recall": 0.5144,
+      "confusion": [
+        [
+          1823,
+          531,
+          146
+        ],
+        [
+          771,
+          1286,
+          443
+        ],
+        [
+          164,
+          376,
+          1960
+        ]
+      ]
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "restaurant_validation": {
+        "accuracy": 0.6995884773662552,
+        "macro_f1": 0.5384729889993048,
+        "neutral_recall": 0.2777777777777778,
+        "confusion": [
+          [
+            22,
+            11,
+            15
+          ],
+          [
+            13,
+            10,
+            13
+          ],
+          [
+            12,
+            9,
+            138
+          ]
+        ]
+      },
+      "product_validation": {
+        "accuracy": 0.672,
+        "macro_f1": 0.6682161983755045,
+        "neutral_recall": 0.5292,
+        "confusion": [
+          [
+            1674,
+            589,
+            237
+          ],
+          [
+            643,
+            1323,
+            534
+          ],
+          [
+            100,
+            357,
+            2043
+          ]
+        ]
+      }
+    },
+    {
+      "epoch": 2,
+      "restaurant_validation": {
+        "accuracy": 0.7078189300411523,
+        "macro_f1": 0.5455607031190421,
+        "neutral_recall": 0.2777777777777778,
+        "confusion": [
+          [
+            22,
+            11,
+            15
+          ],
+          [
+            11,
+            10,
+            15
+          ],
+          [
+            12,
+            7,
+            140
+          ]
+        ]
+      },
+      "product_validation": {
+        "accuracy": 0.6716,
+        "macro_f1": 0.6664719274652322,
+        "neutral_recall": 0.504,
+        "confusion": [
+          [
+            1738,
+            533,
+            229
+          ],
+          [
+            713,
+            1260,
+            527
+          ],
+          [
+            121,
+            340,
+            2039
+          ]
+        ]
+      }
+    },
+    {
+      "epoch": 3,
+      "restaurant_validation": {
+        "accuracy": 0.7160493827160493,
+        "macro_f1": 0.5701523597175772,
+        "neutral_recall": 0.3611111111111111,
+        "confusion": [
+          [
+            22,
+            11,
+            15
+          ],
+          [
+            11,
+            13,
+            12
+          ],
+          [
+            11,
+            9,
+            139
+          ]
+        ]
+      },
+      "product_validation": {
+        "accuracy": 0.6690666666666667,
+        "macro_f1": 0.6663169277611788,
+        "neutral_recall": 0.5276,
+        "confusion": [
+          [
+            1718,
+            574,
+            208
+          ],
+          [
+            715,
+            1319,
+            466
+          ],
+          [
+            126,
+            393,
+            1981
+          ]
+        ]
+      }
+    }
+  ],
+  "selected_epoch": 3,
+  "training_seconds": 264.5469760550004,
+  "candidate": {
+    "restaurant_validation": {
+      "accuracy": 0.7160493827160493,
+      "macro_f1": 0.5701523597175772,
+      "neutral_recall": 0.3611111111111111,
+      "confusion": [
+        [
+          22,
+          11,
+          15
+        ],
+        [
+          11,
+          13,
+          12
+        ],
+        [
+          11,
+          9,
+          139
+        ]
+      ]
+    },
+    "restaurant_test": {
+      "accuracy": 0.7418032786885246,
+      "macro_f1": 0.6050462203170105,
+      "neutral_recall": 0.3333333333333333,
+      "confusion": [
+        [
+          28,
+          9,
+          12
+        ],
+        [
+          9,
+          12,
+          15
+        ],
+        [
+          13,
+          5,
+          141
+        ]
+      ]
+    },
+    "product_validation": {
+      "accuracy": 0.6690666666666667,
+      "macro_f1": 0.6663169277611788,
+      "neutral_recall": 0.5276,
+      "confusion": [
+        [
+          1718,
+          574,
+          208
+        ],
+        [
+          715,
+          1319,
+          466
+        ],
+        [
+          126,
+          393,
+          1981
+        ]
+      ]
+    },
+    "product_test": {
+      "accuracy": 0.6682666666666667,
+      "macro_f1": 0.6647634756888934,
+      "neutral_recall": 0.5192,
+      "confusion": [
+        [
+          1717,
+          567,
+          216
+        ],
+        [
+          690,
+          1298,
+          512
+        ],
+        [
+          119,
+          384,
+          1997
+        ]
+      ]
+    }
+  }
+}

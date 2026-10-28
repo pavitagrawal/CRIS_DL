@@ -1,0 +1,203 @@
+{
+  "design": {
+    "seed": 77,
+    "original_training": 13500,
+    "additional_selected_per_category": 15000,
+    "additional_used_after_deduplication": 29997,
+    "additional_beauty_source": "All_Beauty; excluding all original 9000 review texts",
+    "additional_phone_source": "Cell_Phones_and_Accessories source rows 400001 to 1000000; excluding original phone samples",
+    "additional_sampling_seeds": [
+      881,
+      882
+    ],
+    "max_words": 15000,
+    "max_length": 120,
+    "batch_size": 128,
+    "labels": "ratings 1-2 negative, 3 neutral, 4-5 positive"
+  },
+  "baseline": {
+    "beauty_validation": {
+      "accuracy": 0.70593,
+      "macro_f1": 0.70911,
+      "confusion": [
+        [
+          276,
+          148,
+          26
+        ],
+        [
+          65,
+          342,
+          43
+        ],
+        [
+          14,
+          101,
+          335
+        ]
+      ]
+    },
+    "phone_validation": {
+      "accuracy": 0.66278,
+      "macro_f1": 0.66886,
+      "confusion": [
+        [
+          369,
+          209,
+          22
+        ],
+        [
+          125,
+          415,
+          60
+        ],
+        [
+          24,
+          167,
+          409
+        ]
+      ]
+    }
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "beauty_validation": {
+        "accuracy": 0.72519,
+        "macro_f1": 0.72837,
+        "confusion": [
+          [
+            295,
+            138,
+            17
+          ],
+          [
+            77,
+            329,
+            44
+          ],
+          [
+            13,
+            82,
+            355
+          ]
+        ]
+      },
+      "phone_validation": {
+        "accuracy": 0.69222,
+        "macro_f1": 0.69692,
+        "confusion": [
+          [
+            395,
+            180,
+            25
+          ],
+          [
+            132,
+            419,
+            49
+          ],
+          [
+            30,
+            138,
+            432
+          ]
+        ]
+      },
+      "mean_macro_f1": 0.712645
+    },
+    {
+      "epoch": 2,
+      "beauty_validation": {
+        "accuracy": 0.73333,
+        "macro_f1": 0.73619,
+        "confusion": [
+          [
+            295,
+            140,
+            15
+          ],
+          [
+            68,
+            334,
+            48
+          ],
+          [
+            12,
+            77,
+            361
+          ]
+        ]
+      },
+      "phone_validation": {
+        "accuracy": 0.69333,
+        "macro_f1": 0.69732,
+        "confusion": [
+          [
+            388,
+            185,
+            27
+          ],
+          [
+            126,
+            414,
+            60
+          ],
+          [
+            26,
+            128,
+            446
+          ]
+        ]
+      },
+      "mean_macro_f1": 0.716755
+    },
+    {
+      "epoch": 3,
+      "beauty_validation": {
+        "accuracy": 0.72741,
+        "macro_f1": 0.73033,
+        "confusion": [
+          [
+            305,
+            132,
+            13
+          ],
+          [
+            87,
+            320,
+            43
+          ],
+          [
+            23,
+            70,
+            357
+          ]
+        ]
+      },
+      "phone_validation": {
+        "accuracy": 0.69,
+        "macro_f1": 0.69403,
+        "confusion": [
+          [
+            405,
+            170,
+            25
+          ],
+          [
+            148,
+            397,
+            55
+          ],
+          [
+            35,
+            125,
+            440
+          ]
+        ]
+      },
+      "mean_macro_f1": 0.71218
+    }
+  ],
+  "selected_epoch": 2
+}

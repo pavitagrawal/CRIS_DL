@@ -1,0 +1,77 @@
+{
+  "beauty_validation": {
+    "reviews": 1350,
+    "model": {
+      "accuracy": 0.705925925925926,
+      "precision_macro": 0.7284509708567196,
+      "recall_macro": 0.7059259259259258,
+      "f1_macro": 0.7091060433244021
+    },
+    "with_rule": {
+      "accuracy": 0.705925925925926,
+      "precision_macro": 0.7284509708567196,
+      "recall_macro": 0.7059259259259258,
+      "f1_macro": 0.7091060433244021
+    },
+    "changed": 0,
+    "changes": []
+  },
+  "phone_validation": {
+    "reviews": 1800,
+    "model": {
+      "accuracy": 0.6627777777777778,
+      "precision_macro": 0.6900004803957366,
+      "recall_macro": 0.6627777777777778,
+      "f1_macro": 0.668857071184824
+    },
+    "with_rule": {
+      "accuracy": 0.6627777777777778,
+      "precision_macro": 0.6900004803957366,
+      "recall_macro": 0.6627777777777778,
+      "f1_macro": 0.668857071184824
+    },
+    "changed": 0,
+    "changes": []
+  },
+  "beauty_test": {
+    "reviews": 1350,
+    "model": {
+      "accuracy": 0.7,
+      "precision_macro": 0.7198751532383256,
+      "recall_macro": 0.6999999999999998,
+      "f1_macro": 0.7034444684794409
+    },
+    "with_rule": {
+      "accuracy": 0.6992592592592592,
+      "precision_macro": 0.718941338820449,
+      "recall_macro": 0.6992592592592594,
+      "f1_macro": 0.702689891975912
+    },
+    "changed": 1,
+    "changes": [
+      {
+        "old": "neutral",
+        "new": "positive",
+        "gold": "neutral"
+      }
+    ]
+  },
+  "phone_test": {
+    "reviews": 1500,
+    "model": {
+      "accuracy": 0.6586666666666666,
+      "precision_macro": 0.7008834398432526,
+      "recall_macro": 0.6586666666666666,
+      "f1_macro": 0.6651552032901686
+    },
+    "with_rule": {
+      "accuracy": 0.6586666666666666,
+      "precision_macro": 0.7008834398432526,
+      "recall_macro": 0.6586666666666666,
+      "f1_macro": 0.6651552032901686
+    },
+    "changed": 0,
+    "changes": []
+  },
+  "limits": "Star-derived proxy labels. Phone test and beauty test have been inspected in earlier development. The rule uses aspect heuristics, not a new model."
+}

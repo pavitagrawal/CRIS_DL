@@ -1,0 +1,355 @@
+{
+  "rating_proxy_90": {
+    "before_accuracy": 0.6111111111111112,
+    "after_accuracy": 0.6111111111111112,
+    "before_macro_f1": 0.6085650723025583,
+    "after_macro_f1": 0.6085650723025583,
+    "before_recall": {
+      "negative": 0.7,
+      "neutral": 0.43333333333333335,
+      "positive": 0.7
+    },
+    "after_recall": {
+      "negative": 0.7,
+      "neutral": 0.43333333333333335,
+      "positive": 0.7
+    },
+    "changed": 0,
+    "corrected": 0,
+    "harmed": 0,
+    "examples": []
+  },
+  "rating_proxy_90_ensemble": {
+    "before_accuracy": 0.6111111111111112,
+    "after_accuracy": 0.5888888888888889,
+    "before_macro_f1": 0.6085650723025583,
+    "after_macro_f1": 0.5797039769234407,
+    "before_recall": {
+      "negative": 0.7,
+      "neutral": 0.43333333333333335,
+      "positive": 0.7
+    },
+    "after_recall": {
+      "negative": 0.5333333333333333,
+      "neutral": 0.4,
+      "positive": 0.8333333333333334
+    },
+    "changed": 13,
+    "corrected": 5,
+    "harmed": 7,
+    "examples": [
+      {
+        "review": "A place which i wanted to visit from a long time!A star is given for the ambiance and the food they served, but the management is not doing a good job at all, when you just call and confirm for three guys, the management says we can\u2019t allow you because of your profile! If you want to see my profile check out the last picture I uploaded, check out my Instagram account, \u2018osman_ahmed6\u2019 before commenting anything on call.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "After a lot of research, I opted to go for this place for our wedding anniversary. The place looked beautiful, the trail to the restaurant, the trees, the lightings everything looked all dreamy. The interior looked very antique and beautiful. Our first order didnot come until 45 mins . When asked the waiter said he forgot to give our order to kitchen. when we saw the order is getting so late , we gave the main course order to save our time . But hell , the very next moment they got our starters the Pizza arrived. There was no one near by to server our food or refill the water. No plates for pizza . We had to continuously call them to serve the food or get plates and cutlery. Now when the bill came they levied 150 service tax , to which we were surprised. We asked them to deduct it and they deducted. In restaurants like this people usually get complimentary brownie or cake , this was a hopeless place. Never recommending or going back again.",
+        "gold": "negative",
+        "before": "neutral",
+        "after": "negative"
+      },
+      {
+        "review": "I'm highly unsatisfied with the behaviour of the cafe. I'm im the cafe right now and they denied to accept my Zomato gold as if its not any of any use. I'm visiting this place for the second time and the first time was pretty good but this time i think they forgot how to treat there consumer, so this is my humble request to you guys out there so please don't vist this place as your Zomato gold wont be entertained by the cafe. Just like the the name its ZERO percent satisfyingAgain! DON'T VISIT ZERO 40!!!",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "The property is beautiful, very chic and cozy. The ambience is great. We ordered the buffalo chicken wings, lamb burger, pizza Florentine and a blueberry cheesecake. The wings were good. Pizza was not that great. I had to wait an hour almost for the lamb burger which was bad and the blueberry chesscake we had felt like it was made with a very bad store bought cake mix.Food - 2.5Ambience - 3.5Service- 2.5",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "For the start of my review, I heard many people saying \" it's an amazing place, you should definitely go\" and finally one day I decided to go. That decision actually became one of the bad decisions. Yes, I love to explore new places and try food but this place failed to impress me except the Pizza.They will give you an option of some 750/- so you can have unlimited food and unlimited dessert with one soft drink, DONT TAKE THAT OFFER, because you cannot eat unlimited food because nothing really is good.My best friend and I, unfortunately ended up paying double the amount.The food contained hell lot of olive oil which made it even harder to swallow.Food - 3/5Chicken Trio Pizza - 4/5Spaghetti - 1/5Crispy chicken - 3.5/5Chicken tikka - 3.5/5Dessert - 2/5Service - 2.5/5Ambience- 3/5The place is very reasonable. Of at all you want to try new pizza then this is the place but tother than that I didn't feel like eating anything.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "Such a over hyped place.Who sells out on pizza during a weekend? Aren\u2019t you supposed to be prepared?Truffle fries- 4/5Virgin mojito- 2/5 tasted like sugar syrupPenne pasta pink sauce with chicken- bland. Undercooked sauce. Just eww.Never coming backAmbience- Cozy 4/5Service- Great until my server\u2019s coworker pointed at me and said \u2018yahi hai kya table ke iss taraf wali ladki\u2019 in Hindi thinking I wouldn\u2019t understand. \ud83d\udc4f",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Could not go in and try out the desserts (which I have been actually looking forward to) because they would not let you park inside. The lane is so congested and they expect us to park our bikes in that lane, where even the trucks pass from. Also, their friends are allowed to park inside but not the bikes. Very unfair. If you expect a huge crowd, better be prepared for the parking facilities. Highly unprofessional and disappointing.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "Food: 3/5Hospitality: 5/5Ambience 3/5Food: Starters were great !! The buffet spread wasnt had much to say. Desserts only two and an ice cream. Felt the buffet price not worthy of the spread. Shikanji was superb !!Hospitality: Service was prompt, very friendly staff.Ambience: An above average ambience with all old collection of stuff seen earlier few places.",
+        "gold": "neutral",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "We went to grab a bite and not sure what to expect...the setting and the backdrop looked like Greek resto with low lighting, calm and cozy corners. Prawn tempura is a must try and very reasonable portion and price. All they could improve is little more lighting as it was difficult to even look at the menu. Live music would hav added more points to your resto as you all have a great setting of the resto.",
+        "gold": "neutral",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "I ordered chef special meal it included paneer curry, black dal, 4 rotis, salad and healthy food of the day. The food was looking fresh and was packed nicely. Taste was very similar to home cooked food. They put a sticker on the box which has all the nutrition information about the food.",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "This place is huge! One of the best ambaince for a pub in Hyderabad. There are quite places and also loud places and it is spread across a wide area. As you walk in, you enter a huge amphitheatre modeled seating with an outdoor seating behind it.Don't miss going to this one. There may be restrictions on sandals, etc., but that's absolutely worth it. Food is too good! You just can't stop ordering for more. Try all of their starters, they are plated really well too and the quality and quantity makes your tummy full. Service is also pretty good and they make sure you are taken care of.",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "That have chosen a very very beautiful place. Have place and ambience according to all the mood. Outside area is too dreamy with pebbles and candles; inside is the chilled out place to hang out with friends and family. The entrance to the place is very beautiful and nice.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Ambience is good with nice backdrop...The place was empty as we went early at 12:50 and thats the trick if you are going for unlimited\ud83d\ude01The service was fast... We ordered 8 pizzas initially and they were on the table within 15 minutes.You would be spoilt for choice for pizzas. I liked chicken schezwan, tikka and roasted cream pizzas. Achari paneer is also good. Had chocolate mousse for dessert which was ok.Pritam was working our table... Awesome guy with courteous behaviour... Overall a must try place...They add service charge in the bill so buffet comes to around 385 bucks. Also the pizzas are thin crust 4 piece 6\" pizzas... So they are small. Order more at start so that you don't need to wait.",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      }
+    ]
+  },
+  "human_binary_yelp_996": {
+    "before_accuracy": 0.7560240963855421,
+    "after_accuracy": 0.7580321285140562,
+    "before_macro_f1": 0.5241292032432743,
+    "after_macro_f1": 0.5244197798642797,
+    "before_recall": {
+      "negative": 0.7706237424547284,
+      "neutral": 0.0,
+      "positive": 0.7414829659318637
+    },
+    "after_recall": {
+      "negative": 0.7686116700201208,
+      "neutral": 0.0,
+      "positive": 0.7474949899799599
+    },
+    "changed": 7,
+    "corrected": 4,
+    "harmed": 2,
+    "examples": [
+      {
+        "review": "There is so much good food in Vegas that I feel cheated for wasting an eating opportunity by going to Rice and Company.",
+        "gold": "negative",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "So don't go there if you are looking for good food...",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Waitress was good though!",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "Kids pizza is always a hit too with lots of great side dish options for the kiddos!",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "This is some seriously good pizza and I'm an expert/connisseur on the topic.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Paying $7.85 for a hot dog and fries that looks like it came out of a kid's meal at the Wienerschnitzel is not my idea of a good meal.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "The feel of the dining room was more college cooking course than high class dining and the service was slow at best.",
+        "gold": "negative",
+        "before": "neutral",
+        "after": "negative"
+      }
+    ]
+  },
+  "human_binary_yelp_996_ensemble": {
+    "before_accuracy": 0.7560240963855421,
+    "after_accuracy": 0.7620481927710844,
+    "before_macro_f1": 0.5241292032432743,
+    "after_macro_f1": 0.5290999026495119,
+    "before_recall": {
+      "negative": 0.7706237424547284,
+      "neutral": 0.0,
+      "positive": 0.7414829659318637
+    },
+    "after_recall": {
+      "negative": 0.7183098591549296,
+      "neutral": 0.0,
+      "positive": 0.8056112224448898
+    },
+    "changed": 70,
+    "corrected": 33,
+    "harmed": 27,
+    "examples": [
+      {
+        "review": "Hard to judge whether these sides were good because we were grossed out by the melted styrofoam and didn't want to eat it for fear of getting sick.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "This place receives stars for their APPETIZERS!!!",
+        "gold": "positive",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "Omelets are to die for!",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "It's like a really sexy party in your mouth, where you're outrageously flirting with the hottest person at the party.",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "Will be back again!",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "This is one of the better buffets that I have been to.",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "Will go back next trip out.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "They have a good selection of food including a massive meatloaf sandwich, a crispy chicken wrap, a delish tuna melt and some tasty burgers.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "The menu is always changing, food quality is going down & service is extremely slow.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "So don't go there if you are looking for good food...",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "The waitresses are very friendly.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "The atmosphere is modern and hip, while maintaining a touch of coziness.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "I've never been more insulted or felt disrespected.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Must have been an off night at this place.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "The Jamaican mojitos are delicious.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "- the food is rich so order accordingly.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "The service was a bit lacking.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "If she had not rolled the eyes we may have stayed... Not sure if we will go back and try it again.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "Much better than the other AYCE sushi place I went to in Vegas.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "I as well would've given godfathers zero stars if possible.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Just as good as when I had it more than a year ago!",
+        "gold": "positive",
+        "before": "neutral",
+        "after": "positive"
+      },
+      {
+        "review": "You cant go wrong with any of the food here.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Stopped by this place while in Madison for the Ironman, very friendly, kind staff.",
+        "gold": "positive",
+        "before": "negative",
+        "after": "neutral"
+      },
+      {
+        "review": "I waited and waited.",
+        "gold": "negative",
+        "before": "negative",
+        "after": "positive"
+      },
+      {
+        "review": "Waited 2 hours & never got either of our pizzas as many other around us who came in later did!",
+        "gold": "negative",
+        "before": "negative",
+        "after": "neutral"
+      }
+    ]
+  }
+}

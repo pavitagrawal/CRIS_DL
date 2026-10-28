@@ -1,0 +1,243 @@
+{
+  "source": "UCI Sentiment Labelled Sentences: yelp_labelled.txt",
+  "count": 996,
+  "duplicate_source_rows_removed": 4,
+  "reference_labels": {
+    "positive": 499,
+    "negative": 497
+  },
+  "exact_normalized_overlap_with_restaurant_training_source": 0,
+  "exact_normalized_overlap_with_product_training_source": 0,
+  "label_order": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "models": {
+    "short_review_product": {
+      "accuracy": 0.7560240963855421,
+      "binary_reference_macro_f1": 0.7861938048649114,
+      "predicted_distribution": {
+        "positive": 434,
+        "negative": 486,
+        "neutral": 76
+      },
+      "confusion_rows_gold_negative_positive_columns_pred_negative_neutral_positive": [
+        [
+          383,
+          50,
+          64
+        ],
+        [
+          103,
+          26,
+          370
+        ]
+      ],
+      "per_reference_class": {
+        "negative": {
+          "precision": 0.7880658436213992,
+          "recall": 0.7706237424547284,
+          "f1": 0.7792472024415056,
+          "support": 497
+        },
+        "positive": {
+          "precision": 0.8525345622119815,
+          "recall": 0.7414829659318637,
+          "f1": 0.7931404072883173,
+          "support": 499
+        }
+      },
+      "sample_errors": [
+        {
+          "review": "Stopped by during the late May bank holiday off Rick Steve recommendation and loved it.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "Now I am getting angry and I want my damn pho.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "The fries were great too.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "I was shocked because no signs indicate cash only.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "- They never brought a salad we asked for.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "Also there are combos like a burger, fries, and beer for 23 which is a decent deal.",
+          "gold": "positive",
+          "predicted": "neutral"
+        },
+        {
+          "review": "I found this place by accident and I could not be happier.",
+          "gold": "positive",
+          "predicted": "neutral"
+        },
+        {
+          "review": "seems like a good quick place to grab a bite of some familiar pub food, but do yourself a favor and look elsewhere.",
+          "gold": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "review": "The only redeeming quality of the restaurant was that it was very inexpensive.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "If you want a sandwich just go to any Firehouse!!!!!",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "He came running after us when he realized my husband had left his sunglasses on the table.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "The portion was huge!",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "This place receives stars for their APPETIZERS!!!",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "The service was meh.",
+          "gold": "negative",
+          "predicted": "positive"
+        }
+      ]
+    },
+    "restaurant_experimental": {
+      "accuracy": 0.7248995983935743,
+      "binary_reference_macro_f1": 0.7528491574634358,
+      "predicted_distribution": {
+        "positive": 577,
+        "negative": 325,
+        "neutral": 94
+      },
+      "confusion_rows_gold_negative_positive_columns_pred_negative_neutral_positive": [
+        [
+          285,
+          72,
+          140
+        ],
+        [
+          40,
+          22,
+          437
+        ]
+      ],
+      "per_reference_class": {
+        "negative": {
+          "precision": 0.8769230769230769,
+          "recall": 0.5734406438631791,
+          "f1": 0.6934306569343066,
+          "support": 497
+        },
+        "positive": {
+          "precision": 0.75736568457539,
+          "recall": 0.875751503006012,
+          "f1": 0.8122676579925651,
+          "support": 499
+        }
+      },
+      "sample_errors": [
+        {
+          "review": "Stopped by during the late May bank holiday off Rick Steve recommendation and loved it.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "Now I am getting angry and I want my damn pho.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "I tried the Cape Cod ravoli, chicken,with cranberry...mmmm!",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "I was disgusted because I was pretty sure that was human hair.",
+          "gold": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "review": "I was shocked because no signs indicate cash only.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "The Burrittos Blah!",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "- They never brought a salad we asked for.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "I found this place by accident and I could not be happier.",
+          "gold": "positive",
+          "predicted": "neutral"
+        },
+        {
+          "review": "seems like a good quick place to grab a bite of some familiar pub food, but do yourself a favor and look elsewhere.",
+          "gold": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "review": "The only redeeming quality of the restaurant was that it was very inexpensive.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "Hard to judge whether these sides were good because we were grossed out by the melted styrofoam and didn't want to eat it for fear of getting sick.",
+          "gold": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "review": "Frozen pucks of disgust, with some of the worst people behind the register.",
+          "gold": "negative",
+          "predicted": "positive"
+        },
+        {
+          "review": "He came running after us when he realized my husband had left his sunglasses on the table.",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "The portion was huge!",
+          "gold": "positive",
+          "predicted": "negative"
+        },
+        {
+          "review": "The Heart Attack Grill in downtown Vegas is an absolutely flat-lined excuse for a restaurant.",
+          "gold": "negative",
+          "predicted": "positive"
+        }
+      ]
+    }
+  },
+  "limits": "Originally 500 positive/500 negative sentences; exact duplicates and any exact training overlaps excluded. Neutral model outputs count as errors. No neutral or mixed gold labels, no full-length reviews, and no claim of three-class accuracy. The models were selected before this set was opened."
+}

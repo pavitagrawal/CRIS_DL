@@ -1,0 +1,27 @@
+{
+  "method": "Postprocessing for restaurant category only: one clause, at most 30 words, exactly one matched aspect, one clear uncontradicted explicit cue. Does not alter saved model weights.",
+  "held_out_yelp_200": {
+    "model_accuracy": 0.775,
+    "adjusted_accuracy": 0.78,
+    "model_macro_f1": 0.5257566334991708,
+    "adjusted_macro_f1": 0.5291068373853093,
+    "changed": 1,
+    "corrected": 1,
+    "harmed": 0
+  },
+  "restaurant_rating_proxy_90": {
+    "model_accuracy": 0.6444444444444445,
+    "adjusted_accuracy": 0.6444444444444445,
+    "changed": 0,
+    "corrected": 0,
+    "harmed": 0
+  },
+  "product_inference": "unchanged because correction is applied only when Restaurants is selected",
+  "demonstration": {
+    "review": "The food was tasty",
+    "model_sentiment": "negative",
+    "displayed_sentiment": "positive",
+    "review_flag": "Explicit restaurant cue differs from model"
+  },
+  "limitations": "Very small number of changed held-out predictions; previously inspected evaluation sets; not evidence of a general restaurant accuracy gain. Mixed, neutral, long, unfamiliar and implicit sentiment can still be wrong. Restaurant cue is a rule, not a second model."
+}

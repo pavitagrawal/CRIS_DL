@@ -1,0 +1,19 @@
+{
+  "scanned_rows": 701528,
+  "usable_unique_by_class": {
+    "negative": 133565,
+    "neutral": 52374,
+    "positive": 429546
+  },
+  "sampled_by_class": {
+    "negative": 3000,
+    "neutral": 3000,
+    "positive": 3000
+  },
+  "total_sampled": 9000,
+  "seed": 42,
+  "source": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/All_Beauty.jsonl.gz",
+  "label_rule": "1-2 negative; 3 neutral; 4-5 positive",
+  "min_review_characters": 20,
+  "deduplication": "case-insensitive exact text"
+}

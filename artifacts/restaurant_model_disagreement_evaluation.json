@@ -1,0 +1,40 @@
+{
+  "method": "Raw overall predictions from two saved models; no labels are changed",
+  "sources": {
+    "uci_yelp_binary_996": "UCI Sentiment Labelled Sentences (CC BY 4.0), Yelp subset",
+    "restaurant_rating_proxy_90": "30 each from 1-2, 3, and 4-5 star groups"
+  },
+  "results": {
+    "restaurant_rating_proxy_90": {
+      "reviews": 90,
+      "default_errors": 35,
+      "model_disagreements": 19,
+      "default_errors_with_disagreement": 10,
+      "error_rate_among_disagreements": 0.5263157894736842,
+      "overall_error_rate": 0.3888888888888889,
+      "error_recall_from_disagreement": 0.2857142857142857,
+      "existing_queue_flagged": 67,
+      "existing_queue_errors_flagged": 25,
+      "combined_queue_flagged": 68,
+      "combined_queue_errors_flagged": 26,
+      "newly_flagged_reviews": 1,
+      "newly_flagged_errors": 1
+    },
+    "uci_yelp_binary_996": {
+      "reviews": 996,
+      "default_errors": 243,
+      "model_disagreements": 198,
+      "default_errors_with_disagreement": 94,
+      "error_rate_among_disagreements": 0.47474747474747475,
+      "overall_error_rate": 0.24397590361445784,
+      "error_recall_from_disagreement": 0.3868312757201646,
+      "existing_queue_flagged": 215,
+      "existing_queue_errors_flagged": 114,
+      "combined_queue_flagged": 311,
+      "combined_queue_errors_flagged": 150,
+      "newly_flagged_reviews": 96,
+      "newly_flagged_errors": 36
+    }
+  },
+  "limits": "Sources were inspected before this queue option was added; these are exploratory results. A disagreement is neither a human label nor proof of error. It raises false alarms and misses errors both models make. The combined review queue has not been separately evaluated."
+}

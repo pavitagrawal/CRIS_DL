@@ -1,0 +1,38 @@
+{
+  "selected_epoch": 3,
+  "checks": [
+    {
+      "Evaluation set": "Held-out Yelp (200 human labels)",
+      "Before accuracy": 71.5,
+      "Current accuracy": 77.5,
+      "Before macro F1": 0.5,
+      "Current macro F1": 0.526
+    },
+    {
+      "Evaluation set": "Four-category products (7,500 rating labels)",
+      "Before accuracy": 67.6,
+      "Current accuracy": 67.3,
+      "Before macro F1": 0.673,
+      "Current macro F1": 0.668
+    },
+    {
+      "Evaluation set": "Previously inspected user labels (50)",
+      "Before accuracy": 88.0,
+      "Current accuracy": 92.0,
+      "Before macro F1": 0.605,
+      "Current macro F1": 0.627
+    },
+    {
+      "Evaluation set": "Restaurant rating proxy (90)",
+      "Before accuracy": 61.1,
+      "Current accuracy": 64.4,
+      "Before macro F1": 0.609,
+      "Current macro F1": 0.635
+    }
+  ],
+  "product_neutral_recall_before": 0.5144,
+  "product_neutral_recall_current": 0.4836,
+  "restaurant_proxy_neutral_recall_before": 0.4333,
+  "restaurant_proxy_neutral_recall_current": 0.4,
+  "limitations": "Yelp has only binary positive/negative labels; rating-derived product and restaurant labels are imperfect proxies. The user 50 were inspected during development. Neutral recall decreased. Short phrases such as \u201cThe food was tasty\u201d may still be wrong; aspect cues can differ from overall sentiment."
+}

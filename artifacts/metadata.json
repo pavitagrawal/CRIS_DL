@@ -1,0 +1,39 @@
+{
+  "best_model": "BiLSTM",
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "max_length": 120,
+  "selection_metric": "mean UCI, beauty, phone and appliance validation macro F1",
+  "experiment": "short-review fine tuning epoch 4 on 697 UCI sentences with category replay",
+  "test_metrics": {
+    "accuracy": 0.71704,
+    "f1_macro": 0.7166
+  },
+  "phone_test_metrics": {
+    "accuracy": 0.71067,
+    "f1_macro": 0.71055
+  },
+  "split_sizes": {
+    "train": 43497,
+    "validation": 3150,
+    "test_beauty": 1350,
+    "test_phone": 1500,
+    "train_finetune": 20615,
+    "validation_appliance": 1885,
+    "test_appliance": 1500,
+    "uci_train": 697,
+    "uci_validation": 150,
+    "uci_test": 153
+  },
+  "appliance_test_metrics": {
+    "accuracy": 0.662,
+    "f1_macro": 0.66147
+  },
+  "uci_heldout_metrics": {
+    "accuracy": 0.84967,
+    "f1_macro": 0.58956
+  }
+}

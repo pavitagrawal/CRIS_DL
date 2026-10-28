@@ -1,0 +1,16 @@
+{
+  "source": "Amazon beauty 9000 star-derived labels",
+  "split_seed": 42,
+  "split_sizes": {
+    "train": 6300,
+    "validation": 1350,
+    "test": 1350
+  },
+  "tokenizer_fit": "training only",
+  "vocabulary_limit": 15000,
+  "sequence_length": 120,
+  "model_source": "team repository commit 6221161, with padding-mask fixes to MLP, BiLSTM, Transformer",
+  "selection": "validation macro F1",
+  "winner": "BiLSTM",
+  "note": "architecture comparison separate from deployed TensorFlow BiLSTM"
+}

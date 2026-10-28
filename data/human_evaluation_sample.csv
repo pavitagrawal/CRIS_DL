@@ -1,0 +1,51 @@
+review_row,review,predicted_sentiment,model_score,aspect_summary,aspect_mentions,review_status,review_reason,human_sentiment
+5,"It works great with a car charger, especially if you cannot plug in two adapters at the same time.",positive,0.9297,Positive,Battery: positive,Model result,,positive
+9,"This case has passed the one year mark and while it shows signs of wear, it is 100% functional.",positive,0.7654,No aspects found,,Model result,,positive
+10,"It feels poorly constructed, the menus are difficult to navigate, and the buttons are so recessed that it is difficult to push them.",negative,0.8212,No aspects found,,Model result,,negative
+17,Nice headset priced right.,positive,0.9559,No aspects found,,Model result,,positive
+25,I love the ringtones because they are so upbeat!,positive,0.9692,No aspects found,,Model result,,positive
+27,don't waste your money.,negative,0.995,No aspects found,,Model result,,negative
+29,the phone was unusable and was not new.,negative,0.7218,No aspects found,,Model result,,negative
+33,I did not bother contacting the company for few dollar product but I learned the lesson that I should not have bought this form online anyway.,negative,0.6024,No aspects found,,Model result,,negative
+35,You can't beat the price on these.,positive,0.9789,Positive,Price: positive,Model result,,positive
+41,"Saggy, floppy piece of junk.",negative,0.9885,No aspects found,,Model result,,negative
+46,"Buyer Beware, you could flush money right down the toilet.",negative,0.8951,No aspects found,,Model result,,negative
+47,I have read other's reviews here but I haven't had any problem with it.,neutral,0.8034,No aspects found,,Model result,,positive
+49,Great Earpiece.,positive,0.9351,No aspects found,,Model result,,positive
+50,"They do not last forever, but is not overly expensive to replace.Easy to operate and the sound is much better than others I have tried.",neutral,0.7725,Neutral,Price: neutral; Sound: neutral,Model result,,positive
+52,"Good show, Samsung.",positive,0.9262,No aspects found,,Model result,,positive
+54,"Comfortable, Nice Range, Good Battery Life.",positive,0.9548,Positive,Battery: positive,Model result,,positive
+65,"It's a great tool for entertainment, communication, and data management.Oh, be sure to use ActiveSync 4.2 for optimal data synchronization results!",positive,0.7607,No aspects found,,Model result,,positive
+84,It's kind of embarrassing to use because of how it looks and mostly it's embarrassing how child-like the company is.,positive,0.5058,No aspects found,,Needs review,Low model score,negative
+86,Its not user friendly.,negative,0.6139,No aspects found,,Model result,,negative
+88,Timely shipment and quality product.,negative,0.8186,Negative,Quality: negative,Model result,,positive
+91,The plastic breaks really easy on this clip.,negative,0.8573,No aspects found,,Model result,,negative
+94,The battery is completely useless to me.,negative,0.9494,Negative,Battery: negative,Model result,,negative
+96,"That's a huge design flaw (unless I'm not using it correctly, which I don't think is the case).",neutral,0.5724,Neutral,Design: neutral,Needs review,Low model score,negative
+100,The keyboard is a nice compromise between a full QWERTY and the basic cell phone number keypad.,neutral,0.6549,Neutral,Keyboard: neutral,Model result,,positive
+101,Blue Ant is easy to use.,positive,0.7857,No aspects found,,Model result,,positive
+104,Very wind-resistant.,negative,0.6198,No aspects found,,Model result,,positive
+106,"It has a great camera thats 2MP, and the pics are nice and clear with great picture quality.",positive,0.9902,Positive,Camera: positive; Camera: positive; Quality: positive,Model result,,positive
+109,This results in the phone being either stuck at max volume or mute.,negative,0.5948,No aspects found,,Needs review,Low model score,negative
+110,This phone is pretty sturdy and I've never had any large problems with it.,positive,0.9276,No aspects found,,Model result,,positive
+118,Disappointed!.,negative,0.8798,No aspects found,,Model result,,negative
+120,"Just really good.. So far, probably the best BT headset I have ever had.",positive,0.996,No aspects found,,Model result,,positive
+129,THey are so cool!,positive,0.7605,No aspects found,,Model result,,positive
+138,"For the price on Amazon, it is an excellent product, which I would highly recommend.",positive,0.9987,Positive,Price: positive,Model result,,positive
+140,It does everything the description said it would.,neutral,0.5001,No aspects found,,Needs review,Low model score,positive
+145,don't waste your money and time.,negative,0.9968,No aspects found,,Model result,,negative
+146,I purchased this and within 2 days it was no longer working!!!!!!!!!,negative,0.864,No aspects found,,Model result,,negative
+150,Authentic leather with nice shine and comfort .I recommend you this case !!,positive,0.9904,No aspects found,,Model result,,positive
+152,Works great.,positive,0.9812,No aspects found,,Model result,,positive
+158,I had Verizon 2 years ago and really liked their service.,positive,0.9294,Positive,Customer support: positive,Model result,,positive
+159,Could not get strong enough signal.,neutral,0.5221,No aspects found,,Needs review,Low model score,negative
+171,This does not fit the Palm Tungsten E2 and it broke the first time I tried to plug it in.,negative,0.9338,No aspects found,,Model result,,negative
+172,dont buy it.,negative,0.8583,No aspects found,,Model result,,negative
+177,"However-the riingtones are not the best, and neither are the games.",negative,0.5724,No aspects found,,Needs review,Low model score,negative
+179,Oh and I forgot to also mention the weird color effect it has on your phone.,negative,0.8105,No aspects found,,Model result,,negative
+180,Battery life is also great!,positive,0.9766,Positive,Battery: positive,Model result,,positive
+183,Does Not Work.,negative,0.9023,No aspects found,,Model result,,negative
+185,"Nice case, feels good in your hands.",positive,0.97,No aspects found,,Model result,,positive
+188,Everything about this product is wrong.First,negative,0.8607,No aspects found,,Model result,,negative
+199,lightweight and works well.,positive,0.9629,Positive,Portability: positive,Model result,,positive
+200,The case is a flimsy piece of plastic and has no front or side protection whatsoever.,negative,0.9214,No aspects found,,Model result,,negative

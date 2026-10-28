@@ -1,0 +1,19 @@
+{
+  "source": "data/amazon_50k_multicategory",
+  "split_seed": 20261021,
+  "split_sizes": {
+    "train": 35000,
+    "validation": 7500,
+    "test": 7500
+  },
+  "tokenizer_fit": "training only",
+  "vocabulary_limit": 20000,
+  "sequence_length": 200,
+  "model_source": "team repository commit 6221161, with padding-mask fixes to MLP, BiLSTM, Transformer",
+  "selection": "validation macro F1",
+  "winner": "BiLSTM",
+  "note": "architecture comparison separate from deployed TensorFlow BiLSTM",
+  "model_seed": 42,
+  "fine_tuned_from": "artifacts/short_review_candidate",
+  "yelp_training_rows": 597
+}

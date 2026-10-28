@@ -1,0 +1,243 @@
+{
+  "beauty_validation": {
+    "count": 1350,
+    "current": {
+      "accuracy": 0.6911111111111111,
+      "precision_macro": 0.6974938767777643,
+      "recall_macro": 0.6911111111111111,
+      "f1_macro": 0.6925017030963536
+    },
+    "candidate": {
+      "accuracy": 0.705925925925926,
+      "precision_macro": 0.7284509708567196,
+      "recall_macro": 0.7059259259259258,
+      "f1_macro": 0.7091060433244021
+    },
+    "current_confusion": [
+      [
+        290,
+        135,
+        25
+      ],
+      [
+        79,
+        292,
+        79
+      ],
+      [
+        22,
+        77,
+        351
+      ]
+    ],
+    "candidate_confusion": [
+      [
+        276,
+        148,
+        26
+      ],
+      [
+        65,
+        342,
+        43
+      ],
+      [
+        14,
+        101,
+        335
+      ]
+    ]
+  },
+  "phone_validation": {
+    "count": 1800,
+    "current": {
+      "accuracy": 0.625,
+      "precision_macro": 0.6458610104202167,
+      "recall_macro": 0.625,
+      "f1_macro": 0.6302028846075857
+    },
+    "candidate": {
+      "accuracy": 0.6627777777777778,
+      "precision_macro": 0.6900004803957366,
+      "recall_macro": 0.6627777777777778,
+      "f1_macro": 0.668857071184824
+    },
+    "current_confusion": [
+      [
+        383,
+        191,
+        26
+      ],
+      [
+        178,
+        363,
+        59
+      ],
+      [
+        75,
+        146,
+        379
+      ]
+    ],
+    "candidate_confusion": [
+      [
+        369,
+        209,
+        22
+      ],
+      [
+        125,
+        415,
+        60
+      ],
+      [
+        24,
+        167,
+        409
+      ]
+    ]
+  },
+  "beauty_test": {
+    "count": 1350,
+    "current": {
+      "accuracy": 0.674074074074074,
+      "precision_macro": 0.6792391456372755,
+      "recall_macro": 0.674074074074074,
+      "f1_macro": 0.6754533388799745
+    },
+    "candidate": {
+      "accuracy": 0.7,
+      "precision_macro": 0.7198751532383256,
+      "recall_macro": 0.6999999999999998,
+      "f1_macro": 0.7034444684794409
+    },
+    "current_confusion": [
+      [
+        282,
+        135,
+        33
+      ],
+      [
+        107,
+        277,
+        66
+      ],
+      [
+        13,
+        86,
+        351
+      ]
+    ],
+    "candidate_confusion": [
+      [
+        271,
+        154,
+        25
+      ],
+      [
+        84,
+        327,
+        39
+      ],
+      [
+        7,
+        96,
+        347
+      ]
+    ]
+  },
+  "phone_test": {
+    "count": 1500,
+    "current": {
+      "accuracy": 0.634,
+      "precision_macro": 0.6512210733334528,
+      "recall_macro": 0.634,
+      "f1_macro": 0.6385088188623654
+    },
+    "candidate": {
+      "accuracy": 0.6586666666666666,
+      "precision_macro": 0.7008834398432526,
+      "recall_macro": 0.6586666666666666,
+      "f1_macro": 0.6651552032901686
+    },
+    "current_confusion": [
+      [
+        328,
+        151,
+        21
+      ],
+      [
+        132,
+        305,
+        63
+      ],
+      [
+        48,
+        134,
+        318
+      ]
+    ],
+    "candidate_confusion": [
+      [
+        288,
+        200,
+        12
+      ],
+      [
+        80,
+        372,
+        48
+      ],
+      [
+        19,
+        153,
+        328
+      ]
+    ]
+  },
+  "examples": [
+    {
+      "text": "The screen is bright and performance is fast.",
+      "current": "negative",
+      "candidate": "neutral"
+    },
+    {
+      "text": "The keyboard is comfortable but the battery drains quickly.",
+      "current": "neutral",
+      "candidate": "neutral"
+    }
+  ],
+  "design": {
+    "source": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Cell_Phones_and_Accessories.jsonl.gz",
+    "labels": "1-2 negative; 3 neutral; 4-5 positive",
+    "phone_test_source_rows": "first 100,000 source rows",
+    "phone_development_source_rows": "next 300,000 source rows",
+    "scanned_test": 100000,
+    "scanned_development": 300000,
+    "usable_in_test_range": {
+      "negative": 13967,
+      "neutral": 7643,
+      "positive": 67969
+    },
+    "usable_in_development_range": {
+      "negative": 44205,
+      "neutral": 22857,
+      "positive": 196384
+    },
+    "training_counts": {
+      "beauty": 6300,
+      "phone": 7200
+    },
+    "validation_counts": {
+      "beauty": 1350,
+      "phone": 1800
+    },
+    "test_counts": {
+      "beauty": 1350,
+      "phone": 1500
+    },
+    "seed": 42,
+    "phone_development_seed": 43,
+    "notes": "No exact normalized beauty or phone test review text in phone development sample; source ranges are separate, but related products and near-duplicates may remain. Phone test set has already been inspected in earlier experiments."
+  }
+}

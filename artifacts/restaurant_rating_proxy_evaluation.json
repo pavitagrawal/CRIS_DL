@@ -1,0 +1,241 @@
+{
+  "source": "https://github.com/skathirmani/datasets/blob/main/restaurant_reviews.csv",
+  "selection": "30 per proxy class from the first 1,069 rated records; deterministic text-hash order within each class; no model predictions used for selection",
+  "rating_to_proxy": {
+    "1-2": "negative",
+    "3": "neutral",
+    "4-5": "positive"
+  },
+  "count": 90,
+  "proxy_class_counts": {
+    "negative": 30,
+    "neutral": 30,
+    "positive": 30
+  },
+  "exact_normalized_training_overlap": 0,
+  "training_overlap_check_complete": true,
+  "label_order": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "models": {
+    "short_review_product": {
+      "accuracy": 0.6111111111111112,
+      "macro_f1": 0.6085650723025583,
+      "predicted_distribution": {
+        "negative": 30,
+        "neutral": 28,
+        "positive": 32
+      },
+      "confusion_rows_gold_columns_predicted": [
+        [
+          21,
+          8,
+          1
+        ],
+        [
+          7,
+          13,
+          10
+        ],
+        [
+          2,
+          7,
+          21
+        ]
+      ],
+      "per_class": {
+        "negative": {
+          "precision": 0.7,
+          "recall": 0.7,
+          "f1": 0.7,
+          "support": 30
+        },
+        "neutral": {
+          "precision": 0.4642857142857143,
+          "recall": 0.43333333333333335,
+          "f1": 0.4482758620689655,
+          "support": 30
+        },
+        "positive": {
+          "precision": 0.65625,
+          "recall": 0.7,
+          "f1": 0.6774193548387096,
+          "support": 30
+        }
+      },
+      "sample_errors": [
+        {
+          "text": "Best part is mouth freshener. Really disappointed by the food they served. Especially non vegs. We ordered chicken tikka and bhatinda chicken curry. Not up to expectations.. both dishes were tasteless. Ambiance is good. Service ok.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "In love with the simple everyday food. This is exactly what I was looking for. Is there a way to subscribe for daily food ? Or do we need to order it separately everyday ?",
+          "rating_proxy": "negative",
+          "predicted": "positive"
+        },
+        {
+          "text": "Well we had our prior bookings done over call.But they did not mention exactly how the procedure happens of allocation of seats. We did not get the desired seating although prior booking. Moreover the staff wasn't too courteous.Overall, it wasn't a good experience.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Not a great place in general, but a good place of. You want to have some Goan food. Did not like the crispy chicken. Fish items were decent. Atleast the portions are decent.Although the interiors are good, but since it is open area, too many mosquitoes. They provide coils but those do not help. Too many screaming kids around. Weekends are worse.Service could be better. Have to wait atleast 10 mins before someone responds. More before your order actually arrives. I wonder why getting a refil takes 15 mins. I changed tables and was asked to carry my drink to the other table myself, food wasn't transferred although I reminded.They do not start before 7 no matter what. If you go before, they'll make you sit on the side seats where armies of mosquitoes will wage war against you.Enough varieties of food/drinks are available.Heavy on the pocket.Good parking available.Service 1.5/5Price 2/5Ambiance 2.5/5",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "After a lot of research, I opted to go for this place for our wedding anniversary. The place looked beautiful, the trail to the restaurant, the trees, the lightings everything looked all dreamy. The interior looked very antique and beautiful. Our first order didnot come until 45 mins . When asked the waiter said he forgot to give our order to kitchen. when we saw the order is getting so late , we gave the main course order to save our time . But hell , the very next moment they got our starters the Pizza arrived. There was no one near by to server our food or refill the water. No plates for pizza . We had to continuously call them to serve the food or get plates and cutlery. Now when the bill came they levied 150 service tax , to which we were surprised. We asked them to deduct it and they deducted. In restaurants like this people usually get complimentary brownie or cake , this was a hopeless place. Never recommending or going back again.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Another place in Jubilee Hills that did not live up to the hype. Ordered some pastries which were good but the capuccino tasted dilute and not exactly worth the price.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Frankly, A bad experience. Quite an expensive place for the kind of food served. Was there for a weekend. Didn't quite enjoy a dish I could name. Even the live grill was disappointing. Haven't seen this in Bangalore or Goa when this place over there is quite amazing..",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "A house turned into a cafe with house like interiors I found it very much over hyped...the food, ambiance,price was okayish and Service was pathetic.We waited for 45 min for the second dish after our first dish was served.It was very annoying and when the second dish came it was not Cooked properly.We ordered pizza which was quite okay with very very less vegetables as toppings, next dish we got was spaghetti pasta which was half boiled and pathetic we left it without eating.This place was a mood spoiler overall.Price-3/5Ambiance-3/5Service-0/5Food-2/5",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Food is great with decent pricing.. But the service was worst.. They just keep you waiting for hours to get a table even though there are other tables available... Supervisor over there should get some experience to how to handle Customer as they were rude.. Apart from the supervisor over there.. Food and desserts were good..",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Roastery was on my bucket list for so longAnd visited this place finallyIt was all packed and crowdedwhen we visited this placeFood was okayI felt like they put lot of garlicin every dishI dint like pasta thereAnd I just say the ambience is goodBasically,it is a house which is renovated into cafeDint eat much food there because I felt like I was eating garlic",
+          "rating_proxy": "neutral",
+          "predicted": "negative"
+        },
+        {
+          "text": "Ordered a Ferrero Rocher ice cream. Was half molten by the time it reached. Guess the experimentation of ordering it online doesnt work. You should send a bit of frozen ice cream during delivery so it remains an ice cream till it reaches home and doesn't turn into a milkshake.Enjoyed the Ferrero Rocher milkshake otherwise.",
+          "rating_proxy": "neutral",
+          "predicted": "negative"
+        },
+        {
+          "text": "This was a good find in Hyderabad. The restaurant basically has an Italian cuisine with great packages and deals. We opted for an unlimited pizza , desserts and an aerated drink. The meal was fantabulous, the staff is cool and prompt. Overall a great experience. Since the place was crowded service was slow!!",
+          "rating_proxy": "neutral",
+          "predicted": "positive"
+        }
+      ]
+    },
+    "restaurant_experimental": {
+      "accuracy": 0.5888888888888889,
+      "macro_f1": 0.5731527173036607,
+      "predicted_distribution": {
+        "neutral": 22,
+        "positive": 45,
+        "negative": 23
+      },
+      "confusion_rows_gold_columns_predicted": [
+        [
+          17,
+          8,
+          5
+        ],
+        [
+          6,
+          10,
+          14
+        ],
+        [
+          0,
+          4,
+          26
+        ]
+      ],
+      "per_class": {
+        "negative": {
+          "precision": 0.7391304347826086,
+          "recall": 0.5666666666666667,
+          "f1": 0.6415094339622641,
+          "support": 30
+        },
+        "neutral": {
+          "precision": 0.45454545454545453,
+          "recall": 0.3333333333333333,
+          "f1": 0.38461538461538464,
+          "support": 30
+        },
+        "positive": {
+          "precision": 0.5777777777777777,
+          "recall": 0.8666666666666667,
+          "f1": 0.6933333333333334,
+          "support": 30
+        }
+      },
+      "sample_errors": [
+        {
+          "text": "A place which i wanted to visit from a long time!A star is given for the ambiance and the food they served, but the management is not doing a good job at all, when you just call and confirm for three guys, the management says we can’t allow you because of your profile! If you want to see my profile check out the last picture I uploaded, check out my Instagram account, ‘osman_ahmed6’ before commenting anything on call.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Best part is mouth freshener. Really disappointed by the food they served. Especially non vegs. We ordered chicken tikka and bhatinda chicken curry. Not up to expectations.. both dishes were tasteless. Ambiance is good. Service ok.",
+          "rating_proxy": "negative",
+          "predicted": "positive"
+        },
+        {
+          "text": "In love with the simple everyday food. This is exactly what I was looking for. Is there a way to subscribe for daily food ? Or do we need to order it separately everyday ?",
+          "rating_proxy": "negative",
+          "predicted": "positive"
+        },
+        {
+          "text": "Well we had our prior bookings done over call.But they did not mention exactly how the procedure happens of allocation of seats. We did not get the desired seating although prior booking. Moreover the staff wasn't too courteous.Overall, it wasn't a good experience.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Not a great place in general, but a good place of. You want to have some Goan food. Did not like the crispy chicken. Fish items were decent. Atleast the portions are decent.Although the interiors are good, but since it is open area, too many mosquitoes. They provide coils but those do not help. Too many screaming kids around. Weekends are worse.Service could be better. Have to wait atleast 10 mins before someone responds. More before your order actually arrives. I wonder why getting a refil takes 15 mins. I changed tables and was asked to carry my drink to the other table myself, food wasn't transferred although I reminded.They do not start before 7 no matter what. If you go before, they'll make you sit on the side seats where armies of mosquitoes will wage war against you.Enough varieties of food/drinks are available.Heavy on the pocket.Good parking available.Service 1.5/5Price 2/5Ambiance 2.5/5",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Another place in Jubilee Hills that did not live up to the hype. Ordered some pastries which were good but the capuccino tasted dilute and not exactly worth the price.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "A house turned into a cafe with house like interiors I found it very much over hyped...the food, ambiance,price was okayish and Service was pathetic.We waited for 45 min for the second dish after our first dish was served.It was very annoying and when the second dish came it was not Cooked properly.We ordered pizza which was quite okay with very very less vegetables as toppings, next dish we got was spaghetti pasta which was half boiled and pathetic we left it without eating.This place was a mood spoiler overall.Price-3/5Ambiance-3/5Service-0/5Food-2/5",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "I'm highly unsatisfied with the behaviour of the cafe. I'm im the cafe right now and they denied to accept my Zomato gold as if its not any of any use. I'm visiting this place for the second time and the first time was pretty good but this time i think they forgot how to treat there consumer, so this is my humble request to you guys out there so please don't vist this place as your Zomato gold wont be entertained by the cafe. Just like the the name its ZERO percent satisfyingAgain! DON'T VISIT ZERO 40!!!",
+          "rating_proxy": "negative",
+          "predicted": "positive"
+        },
+        {
+          "text": "The property is beautiful, very chic and cozy. The ambience is great. We ordered the buffalo chicken wings, lamb burger, pizza Florentine and a blueberry cheesecake. The wings were good. Pizza was not that great. I had to wait an hour almost for the lamb burger which was bad and the blueberry chesscake we had felt like it was made with a very bad store bought cake mix.Food - 2.5Ambience - 3.5Service- 2.5",
+          "rating_proxy": "negative",
+          "predicted": "positive"
+        },
+        {
+          "text": "For the start of my review, I heard many people saying \" it's an amazing place, you should definitely go\" and finally one day I decided to go. That decision actually became one of the bad decisions. Yes, I love to explore new places and try food but this place failed to impress me except the Pizza.They will give you an option of some 750/- so you can have unlimited food and unlimited dessert with one soft drink, DONT TAKE THAT OFFER, because you cannot eat unlimited food because nothing really is good.My best friend and I, unfortunately ended up paying double the amount.The food contained hell lot of olive oil which made it even harder to swallow.Food - 3/5Chicken Trio Pizza - 4/5Spaghetti - 1/5Crispy chicken - 3.5/5Chicken tikka - 3.5/5Dessert - 2/5Service - 2.5/5Ambience- 3/5The place is very reasonable. Of at all you want to try new pizza then this is the place but tother than that I didn't feel like eating anything.",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Food is great with decent pricing.. But the service was worst.. They just keep you waiting for hours to get a table even though there are other tables available... Supervisor over there should get some experience to how to handle Customer as they were rude.. Apart from the supervisor over there.. Food and desserts were good..",
+          "rating_proxy": "negative",
+          "predicted": "neutral"
+        },
+        {
+          "text": "Such a over hyped place.Who sells out on pizza during a weekend? Aren’t you supposed to be prepared?Truffle fries- 4/5Virgin mojito- 2/5 tasted like sugar syrupPenne pasta pink sauce with chicken- bland. Undercooked sauce. Just eww.Never coming backAmbience- Cozy 4/5Service- Great until my server’s coworker pointed at me and said ‘yahi hai kya table ke iss taraf wali ladki’ in Hindi thinking I wouldn’t understand. 👏",
+          "rating_proxy": "negative",
+          "predicted": "positive"
+        }
+      ]
+    }
+  },
+  "limits": "Small English restaurant sample from one source, with only 39 low-rated reviews in the source slice. Three stars are an imperfect proxy for neutral sentiment: a three-star review may sound positive, negative, or mixed. Balanced sampling changes prevalence. This is rating-proxy agreement, not human-annotated three-class accuracy. The two models were trained before this sample was examined."
+}

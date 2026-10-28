@@ -1,0 +1,21 @@
+{
+  "best_model": "BiLSTM",
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "max_length": 120,
+  "selection_metric": "validation macro F1",
+  "test_metrics": {
+    "accuracy": 0.674074074074074,
+    "precision_macro": 0.6792391456372755,
+    "recall_macro": 0.674074074074074,
+    "f1_macro": 0.6754533388799745
+  },
+  "split_sizes": {
+    "train": 6300,
+    "validation": 1350,
+    "test": 1350
+  }
+}

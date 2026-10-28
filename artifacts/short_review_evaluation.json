@@ -1,0 +1,198 @@
+{
+  "uci_heldout": {
+    "n": 153,
+    "old": {
+      "accuracy": 0.79739,
+      "macro_f1": 0.57112,
+      "matrix": [
+        [
+          64,
+          13,
+          6
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          8,
+          58
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.84967,
+      "macro_f1": 0.58956,
+      "matrix": [
+        [
+          69,
+          7,
+          7
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          5,
+          61
+        ]
+      ]
+    }
+  },
+  "beauty_test": {
+    "n": 1350,
+    "old": {
+      "accuracy": 0.71556,
+      "macro_f1": 0.7168,
+      "matrix": [
+        [
+          311,
+          120,
+          19
+        ],
+        [
+          111,
+          286,
+          53
+        ],
+        [
+          11,
+          70,
+          369
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.71704,
+      "macro_f1": 0.7166,
+      "matrix": [
+        [
+          335,
+          96,
+          19
+        ],
+        [
+          128,
+          267,
+          55
+        ],
+        [
+          16,
+          68,
+          366
+        ]
+      ]
+    }
+  },
+  "phone_test": {
+    "n": 1500,
+    "old": {
+      "accuracy": 0.718,
+      "macro_f1": 0.72014,
+      "matrix": [
+        [
+          349,
+          133,
+          18
+        ],
+        [
+          106,
+          333,
+          61
+        ],
+        [
+          22,
+          83,
+          395
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.71067,
+      "macro_f1": 0.71055,
+      "matrix": [
+        [
+          368,
+          115,
+          17
+        ],
+        [
+          132,
+          298,
+          70
+        ],
+        [
+          27,
+          73,
+          400
+        ]
+      ]
+    }
+  },
+  "appliance_test": {
+    "n": 1500,
+    "old": {
+      "accuracy": 0.65933,
+      "macro_f1": 0.66059,
+      "matrix": [
+        [
+          356,
+          120,
+          24
+        ],
+        [
+          171,
+          270,
+          59
+        ],
+        [
+          41,
+          96,
+          363
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.662,
+      "macro_f1": 0.66147,
+      "matrix": [
+        [
+          362,
+          114,
+          24
+        ],
+        [
+          183,
+          256,
+          61
+        ],
+        [
+          45,
+          80,
+          375
+        ]
+      ]
+    }
+  },
+  "The mixer is noisy": {
+    "old": "neutral",
+    "candidate": "negative"
+  },
+  "The mixer makes a very loud noise": {
+    "old": "neutral",
+    "candidate": "neutral"
+  },
+  "The screen is bright and performance is fast": {
+    "old": "neutral",
+    "candidate": "neutral"
+  },
+  "The battery drains quickly": {
+    "old": "neutral",
+    "candidate": "neutral"
+  }
+}

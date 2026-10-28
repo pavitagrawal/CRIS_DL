@@ -1,0 +1,378 @@
+{
+  "protocol": "Deduplicated UCI Yelp stratified 60/20/20; Yelp train with 1200 product replay per class; select on validation only",
+  "counts": {
+    "yelp_train": 597,
+    "yelp_validation": 199,
+    "yelp_test": 200,
+    "product_replay": 3600
+  },
+  "baseline": {
+    "yelp_validation": {
+      "accuracy": 0.7587939698492462,
+      "macro_f1": 0.5255365315537078,
+      "neutral_recall": 0.0,
+      "confusion": [
+        [
+          80,
+          9,
+          10
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          23,
+          6,
+          71
+        ]
+      ]
+    },
+    "yelp_test": {
+      "accuracy": 0.715,
+      "macro_f1": 0.5004133370074401,
+      "neutral_recall": 0.0,
+      "confusion": [
+        [
+          70,
+          12,
+          18
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          7,
+          73
+        ]
+      ]
+    },
+    "product_validation": {
+      "accuracy": 0.6753333333333333,
+      "macro_f1": 0.6728822434770353,
+      "neutral_recall": 0.5216,
+      "confusion": [
+        [
+          1810,
+          541,
+          149
+        ],
+        [
+          793,
+          1304,
+          403
+        ],
+        [
+          161,
+          388,
+          1951
+        ]
+      ]
+    },
+    "product_test": {
+      "accuracy": 0.6758666666666666,
+      "macro_f1": 0.6726204011497572,
+      "neutral_recall": 0.5144,
+      "confusion": [
+        [
+          1823,
+          531,
+          146
+        ],
+        [
+          771,
+          1286,
+          443
+        ],
+        [
+          164,
+          376,
+          1960
+        ]
+      ]
+    },
+    "human_50": {
+      "accuracy": 0.88,
+      "macro_f1": 0.6053900709219858,
+      "neutral_recall": 0.0,
+      "confusion": [
+        [
+          22,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          3,
+          22
+        ]
+      ]
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "yelp_validation": {
+        "accuracy": 0.7889447236180904,
+        "macro_f1": 0.541027696143913,
+        "neutral_recall": 0.0,
+        "confusion": [
+          [
+            79,
+            8,
+            12
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            3,
+            78
+          ]
+        ]
+      },
+      "product_validation": {
+        "accuracy": 0.6742666666666667,
+        "macro_f1": 0.6695263161290499,
+        "neutral_recall": 0.4912,
+        "confusion": [
+          [
+            1860,
+            472,
+            168
+          ],
+          [
+            862,
+            1228,
+            410
+          ],
+          [
+            178,
+            353,
+            1969
+          ]
+        ]
+      }
+    },
+    {
+      "epoch": 2,
+      "yelp_validation": {
+        "accuracy": 0.7788944723618091,
+        "macro_f1": 0.5340811965811966,
+        "neutral_recall": 0.0,
+        "confusion": [
+          [
+            77,
+            8,
+            14
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            3,
+            78
+          ]
+        ]
+      },
+      "product_validation": {
+        "accuracy": 0.6753333333333333,
+        "macro_f1": 0.6717647700245485,
+        "neutral_recall": 0.5016,
+        "confusion": [
+          [
+            1885,
+            464,
+            151
+          ],
+          [
+            879,
+            1254,
+            367
+          ],
+          [
+            196,
+            378,
+            1926
+          ]
+        ]
+      }
+    },
+    {
+      "epoch": 3,
+      "yelp_validation": {
+        "accuracy": 0.7839195979899497,
+        "macro_f1": 0.5373931623931624,
+        "neutral_recall": 0.0,
+        "confusion": [
+          [
+            76,
+            8,
+            15
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            17,
+            3,
+            80
+          ]
+        ]
+      },
+      "product_validation": {
+        "accuracy": 0.6733333333333333,
+        "macro_f1": 0.669151067059215,
+        "neutral_recall": 0.4988,
+        "confusion": [
+          [
+            1843,
+            484,
+            173
+          ],
+          [
+            842,
+            1247,
+            411
+          ],
+          [
+            179,
+            361,
+            1960
+          ]
+        ]
+      }
+    }
+  ],
+  "selected_epoch": 3,
+  "train_seconds": 277.8534005249985,
+  "candidate": {
+    "yelp_validation": {
+      "accuracy": 0.7839195979899497,
+      "macro_f1": 0.5373931623931624,
+      "neutral_recall": 0.0,
+      "confusion": [
+        [
+          76,
+          8,
+          15
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          3,
+          80
+        ]
+      ]
+    },
+    "yelp_test": {
+      "accuracy": 0.775,
+      "macro_f1": 0.5257566334991708,
+      "neutral_recall": 0.0,
+      "confusion": [
+        [
+          75,
+          4,
+          21
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          3,
+          80
+        ]
+      ]
+    },
+    "product_validation": {
+      "accuracy": 0.6733333333333333,
+      "macro_f1": 0.669151067059215,
+      "neutral_recall": 0.4988,
+      "confusion": [
+        [
+          1843,
+          484,
+          173
+        ],
+        [
+          842,
+          1247,
+          411
+        ],
+        [
+          179,
+          361,
+          1960
+        ]
+      ]
+    },
+    "product_test": {
+      "accuracy": 0.6734666666666667,
+      "macro_f1": 0.6677500664322779,
+      "neutral_recall": 0.4836,
+      "confusion": [
+        [
+          1865,
+          455,
+          180
+        ],
+        [
+          831,
+          1209,
+          460
+        ],
+        [
+          161,
+          362,
+          1977
+        ]
+      ]
+    },
+    "human_50": {
+      "accuracy": 0.92,
+      "macro_f1": 0.6265328874024526,
+      "neutral_recall": 0.0,
+      "confusion": [
+        [
+          22,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          24
+        ]
+      ]
+    }
+  }
+}

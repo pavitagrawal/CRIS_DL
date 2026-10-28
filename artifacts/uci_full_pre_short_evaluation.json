@@ -1,0 +1,28 @@
+{
+  "source": "UCI Sentiment Labelled Sentences, Amazon subset, DOI 10.24432/C57604",
+  "count": 1000,
+  "correct": 780,
+  "reference_labels": [
+    "negative",
+    "positive"
+  ],
+  "prediction_labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "confusion": [
+    [
+      357,
+      100,
+      43
+    ],
+    [
+      28,
+      49,
+      423
+    ]
+  ],
+  "neutral_reference_count": 0,
+  "neutral_predictions_count": 149
+}

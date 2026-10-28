@@ -1,0 +1,148 @@
+{
+  "beauty_test": {
+    "count": 1350,
+    "old": {
+      "accuracy": 0.7,
+      "macro_f1": 0.70344,
+      "confusion": [
+        [
+          271,
+          154,
+          25
+        ],
+        [
+          84,
+          327,
+          39
+        ],
+        [
+          7,
+          96,
+          347
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.71259,
+      "macro_f1": 0.71485,
+      "confusion": [
+        [
+          284,
+          147,
+          19
+        ],
+        [
+          86,
+          313,
+          51
+        ],
+        [
+          11,
+          74,
+          365
+        ]
+      ]
+    }
+  },
+  "phone_test": {
+    "count": 1500,
+    "old": {
+      "accuracy": 0.65867,
+      "macro_f1": 0.66516,
+      "confusion": [
+        [
+          288,
+          200,
+          12
+        ],
+        [
+          80,
+          372,
+          48
+        ],
+        [
+          19,
+          153,
+          328
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.69133,
+      "macro_f1": 0.6951,
+      "confusion": [
+        [
+          301,
+          181,
+          18
+        ],
+        [
+          84,
+          356,
+          60
+        ],
+        [
+          17,
+          103,
+          380
+        ]
+      ]
+    }
+  },
+  "ai_draft_50": {
+    "count": 50,
+    "ambiguity_count": 14,
+    "old": {
+      "accuracy": 0.78,
+      "macro_f1": 0.7807,
+      "confusion": [
+        [
+          17,
+          7,
+          0
+        ],
+        [
+          0,
+          11,
+          1
+        ],
+        [
+          0,
+          3,
+          11
+        ]
+      ]
+    },
+    "candidate": {
+      "accuracy": 0.76,
+      "macro_f1": 0.76067,
+      "confusion": [
+        [
+          17,
+          7,
+          0
+        ],
+        [
+          1,
+          10,
+          1
+        ],
+        [
+          1,
+          2,
+          11
+        ]
+      ]
+    }
+  },
+  "screen": {
+    "text": "The screen is bright and performance is fast.",
+    "old": "neutral",
+    "candidate": "neutral"
+  },
+  "battery": {
+    "text": "The camera is excellent but the battery drains quickly.",
+    "old": "neutral",
+    "candidate": "neutral"
+  }
+}

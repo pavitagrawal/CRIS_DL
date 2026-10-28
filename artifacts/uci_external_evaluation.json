@@ -1,0 +1,32 @@
+{
+  "source": "UCI Sentiment Labelled Sentences, Amazon subset, DOI 10.24432/C57604",
+  "count": 153,
+  "correct": 130,
+  "reference_labels": [
+    "negative",
+    "positive"
+  ],
+  "prediction_labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "confusion": [
+    [
+      69,
+      7,
+      7
+    ],
+    [
+      4,
+      5,
+      61
+    ]
+  ],
+  "neutral_reference_count": 0,
+  "neutral_predictions_count": 12,
+  "training_count_from_same_source": 697,
+  "validation_count_from_same_source": 150,
+  "split_seed": 421,
+  "caveat": "The earlier model was evaluated on all 1000 UCI sentences before this split; this comparison is exploratory."
+}
