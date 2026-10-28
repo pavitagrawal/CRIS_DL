@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Review Intelligence — Interface Demo</title>
+  <style>
+    :root { font-family: Inter, system-ui, Arial, sans-serif; color: #17243a; background: #f4f7fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { background: #12254c; color: white; padding: 28px max(24px, calc((100vw - 1080px)/2)); }
+    header h1 { margin: 0 0 8px; font-size: clamp(26px, 4vw, 38px); }
+    header p { margin: 0; color: #d9e7ff; }
+    main { max-width: 1080px; margin: 26px auto; padding: 0 20px 40px; }
+    .notice { background: #fff3cc; color: #603e00; padding: 13px 16px; border-radius: 10px; margin-bottom: 20px; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+    button { border: 0; border-radius: 9px; background: #1863d6; color: white; padding: 11px 17px; cursor: pointer; font-weight: 700; }
+    button.secondary { background: #e3eaf5; color: #193663; }
+    button.active { background: #123b82; color: white; }
+    .card { background: white; border-radius: 14px; padding: 22px; margin-bottom: 16px; box-shadow: 0 3px 17px #1428520d; }
+    textarea { width: 100%; min-height: 110px; resize: vertical; padding: 13px; border: 1px solid #b8c6d9; border-radius: 9px; font: inherit; margin: 10px 0; }
+    input, select { font: inherit; padding: 9px; margin: 8px 0 15px; }
+    label { display: block; font-weight: 650; }
+    .metrics { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+    .metric { min-width: 150px; flex: 1; background: #f0f5fc; padding: 18px; border-radius: 10px; }
+    .metric small { display: block; color: #52647d; }
+    .metric strong { display: block; font-size: 25px; margin-top: 4px; }
+    .bar { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+    .bar span { width: 105px; }
+    .track { flex: 1; background: #ecf1f8; border-radius: 5px; height: 16px; overflow: hidden; }
+    .fill { height: 100%; }
+    .positive { background: #32a777; } .neutral { background: #e6b840; } .negative { background: #dc6970; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid #e2e8f1; padding: 10px; text-align: left; vertical-align: top; }
+    .scroll { overflow-x: auto; }
+    .muted { color: #607087; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header><h1>Customer Review Intelligence</h1><p>Preview the single review and CSV workflow</p></header>
+  <main>
+    <div class="notice"><strong>Interface demo only.</strong> This page uses simple word rules in your browser. It does not run the RNN, LSTM, GRU, or BiLSTM and its outputs are not project results.</div>
+    <div class="tabs"><button id="singleTab" class="active">Single review</button><button id="csvTab" class="secondary">Upload CSV</button></div>
+    <section id="singlePanel" class="card">
+      <h2>Analyze a review</h2>
+      <label for="review">Review text</label>
+      <textarea id="review">The camera is excellent but the battery life is terrible.</textarea>
+      <button id="analyzeSingle">Analyze review</button>
+      <div id="singleOutput"></div>
+    </section>
+    <section id="csvPanel" class="card" hidden>
+      <h2>Analyze a dataset</h2>
+      <p class="muted">Choose any CSV with a column containing reviews. No labels are needed for this preview.</p>
+      <label for="csvFile">Upload a CSV file</label><input id="csvFile" type="file" accept=".csv,text/csv">
+      <p><button id="sample" class="secondary">Use included sample reviews</button></p>
+      <div id="columnBox" hidden><label for="column">Review column</label><select id="column"></select><p><button id="analyzeCsv">Analyze dataset</button></p></div>
+      <div id="csvOutput"></div>
+    </section>
+  </main>
+  <script>
+    const aspects = {
+      Camera: ['camera','photo','picture','lens','selfie'], Battery: ['battery','charging','charge','power'],
+      Design: ['design','look','appearance','style','build'], Performance: ['performance','speed','fast','slow','lag','processor'],
+      Price: ['price','cost','expensive','cheap','value'], 'Customer support': ['support','service','customer care','helpdesk'],
+      Sound: ['sound','audio','speaker','headphone','bass'], Screen: ['screen','display','brightness','resolution'],
+      Delivery: ['delivery','shipping','arrived','packaging'], Quality: ['quality','durable','durability','material']
+    };
+    const positive = ['excellent','amazing','great','good','love','bright','fast','clear','helpful','affordable','beautiful','best'];
+    const negative = ['terrible','bad','awful','poor','drains','slow','unhelpful','expensive','broken','disappointing','hate','worst'];
+    const safe = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const has = (text, word) => new RegExp('(^|[^\\w])' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^\\w])','i').test(text);
+    function label(text) {
+      const p = positive.filter(w => has(text,w)).length, n = negative.filter(w => has(text,w)).length;
+      return p > n ? 'positive' : n > p ? 'negative' : 'neutral';
+    }
+    function analyze(text) {
+      const mentions = [];
+      for (const clause of text.split(/(?<=[.!?;])\s+|\s*;\s*|\s*,\s*|\s+\b(?:but|however|although|whereas)\b\s+/i)) {
+        for (const [aspect, words] of Object.entries(aspects))
+          if (words.some(w => has(clause,w))) mentions.push({aspect, sentiment:label(clause), evidence:clause.trim()});
+      }
+      return {sentiment: label(text), mentions};
+    }
+    function table(headers, rows) {
+      return '<div class="scroll"><table><thead><tr>'+headers.map(h=>'<th>'+safe(h)+'</th>').join('')+'</tr></thead><tbody>'+
+        rows.map(row=>'<tr>'+row.map(v=>'<td>'+safe(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+    }
+    const singleTab=document.querySelector('#singleTab'), csvTab=document.querySelector('#csvTab');
+    function show(which) {
+      const one=which==='single';
+      document.querySelector('#singlePanel').hidden=!one; document.querySelector('#csvPanel').hidden=one;
+      singleTab.className=one?'active':'secondary'; csvTab.className=one?'secondary':'active';
+    }
+    singleTab.onclick=()=>show('single'); csvTab.onclick=()=>show('csv');
+    document.querySelector('#analyzeSingle').onclick=()=>{
+      const text=document.querySelector('#review').value.trim(), out=document.querySelector('#singleOutput');
+      if (!text) {out.innerHTML='<p>Enter a review first.</p>';return;}
+      const r=analyze(text);
+      out.innerHTML='<div class="metrics"><div class="metric"><small>Overall rule result</small><strong>'+safe(r.sentiment)+'</strong></div></div><h3>Aspect mentions</h3>'+
+        (r.mentions.length ? table(['Aspect','Clause result','Matched clause'],r.mentions.map(m=>[m.aspect,m.sentiment,m.evidence])) : '<p>No known aspect keywords found.</p>');
+    };
+    function parseCSV(input) {
+      const rows=[]; let row=[], field='', quoted=false;
+      for(let i=0;i<input.length;i++) {
+        const c=input[i];
+        if(c==='"') {if(quoted && input[i+1]==='"'){field+='"';i++;} else quoted=!quoted;}
+        else if(c===','&&!quoted){row.push(field);field='';}
+        else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&input[i+1]==='\n')i++;row.push(field);if(row.some(x=>x!==''))rows.push(row);row=[];field='';}
+        else field+=c;
+      }
+      row.push(field);if(row.some(x=>x!==''))rows.push(row);
+      if(quoted)throw Error('CSV has an unclosed quoted field.');
+      return rows;
+    }
+    let parsed=[];
+    function setCSV(text) {
+      try {parsed=parseCSV(text.replace(/^\uFEFF/,'')); if(parsed.length<2)throw Error('Add a header and at least one review.');
+        const select=document.querySelector('#column');select.innerHTML='';
+        parsed[0].forEach((name,i)=>{const o=document.createElement('option');o.value=i;o.textContent=name||'(unnamed column)';select.appendChild(o);});
+        const match=parsed[0].findIndex(name=>/review|text|comment/i.test(name));select.value=match<0?0:match;
+        document.querySelector('#columnBox').hidden=false;document.querySelector('#csvOutput').innerHTML='';
+      } catch(e){document.querySelector('#columnBox').hidden=true;document.querySelector('#csvOutput').textContent=e.message;}
+    }
+    document.querySelector('#csvFile').onchange=async e=>{const file=e.target.files[0];if(file)setCSV(await file.text());};
+    document.querySelector('#sample').onclick=()=>setCSV('review,product\n"The camera is excellent but the battery drains quickly.",Phone\n"It works as described and arrived on time.",Phone\n"The sound is clear, but customer support was unhelpful.",Headphones\n"The screen is bright and performance is fast.",Laptop');
+    document.querySelector('#analyzeCsv').onclick=()=>{
+      const index=Number(document.querySelector('#column').value), values=parsed.slice(1).map(row=>row[index]||'').filter(s=>s.trim());
+      const out=document.querySelector('#csvOutput');if(!values.length){out.textContent='No nonempty reviews in that column.';return;}
+      const results=values.map(analyze), counts={positive:0,neutral:0,negative:0}, aspectCounts={};
+      results.forEach(r=>{counts[r.sentiment]++;r.mentions.forEach(m=>{aspectCounts[m.aspect]??={positive:0,neutral:0,negative:0};aspectCounts[m.aspect][m.sentiment]++;});});
+      out.innerHTML='<div class="metrics"><div class="metric"><small>Reviews analyzed</small><strong>'+values.length+'</strong></div>'+
+        Object.keys(counts).map(k=>'<div class="metric"><small>'+k+'</small><strong>'+(100*counts[k]/values.length).toFixed(1)+'%</strong></div>').join('')+'</div><h3>Sentiment distribution</h3>'+
+        Object.keys(counts).map(k=>'<div class="bar"><span>'+k+'</span><div class="track"><div class="fill '+k+'" style="width:'+(100*counts[k]/values.length)+'%"></div></div><b>'+counts[k]+'</b></div>').join('')+
+        '<h3>Aspect mention counts</h3>'+(Object.keys(aspectCounts).length?table(['Aspect','Positive','Neutral','Negative'],Object.entries(aspectCounts).map(([a,c])=>[a,c.positive,c.neutral,c.negative])):'<p>No known aspects found.</p>')+
+        '<h3>Review results</h3>'+table(['Review','Rule result','Aspect mentions'],values.map((v,i)=>[v,results[i].sentiment,results[i].mentions.map(m=>m.aspect+': '+m.sentiment).join('; ')]));
+    };
+  </script>
+</body>
+</html>
