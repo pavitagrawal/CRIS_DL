@@ -91,7 +91,8 @@ class MLP(nn.Module):
 
         # Mean pooling over the sequence dimension → (batch, embed_dim)
         # Ignores <PAD> positions implicitly because their embeddings are zero
-        pooled = embedded.mean(dim=1)
+        mask = (x != self.embedding.padding_idx).unsqueeze(-1)
+        pooled = (embedded * mask).sum(dim=1) / mask.sum(dim=1).clamp(min=1)
 
         # Hidden layer 1
         out = self.dropout1(self.relu1(self.bn1(self.fc1(pooled))))
