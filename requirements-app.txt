@@ -1,0 +1,6 @@
+# Minimal packages needed to run the included Streamlit application.
+streamlit>=1.35,<2
+pandas>=2.0,<3
+numpy>=1.26,<3
+torch>=2.2,<3
+tensorflow>=2.16,<3

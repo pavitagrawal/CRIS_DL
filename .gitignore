@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -7,37 +7,72 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# Virtual Environments
+# Virtual environments and local secrets
 venv/
+venv*/
 env/
+ENV/
+.venv/
+.venv*/
+__pypackages__/
+.python-version
 .env/
+.env.*
+!.env.example
 
 # Jupyter
 .ipynb_checkpoints/
+.virtual_documents/
+.jupyter/
 
-# Data files (large)
+# Downloaded/raw data (keep the small curated project samples)
 data/raw/
-*.csv
-*.json
+data/downloads/
+data/amazon_beauty_balanced.csv
+data/amazon_50k_multicategory/
 *.parquet
 *.zip
 *.gz
 
-# Model weights (large)
+# Generated model weights. The app's curated runtime model is explicitly kept.
 *.pt
 *.pth
 *.h5
 *.pkl
+artifacts/**/*.keras
+!artifacts/best_model.keras
+!artifacts/short_review_candidate/bilstm.pt
 
-# Results & logs
+# Large generated tokenizers from experiments; keep the runtime tokenizer.
+artifacts/**/tokenizer.json
+!artifacts/tokenizer.json
+!artifacts/short_review_candidate/tokenizer.json
+
+# Results and logs
 results/logs/
+tmp/
 *.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Local editor and tool state
+.codex/
+.agents/
+.vscode/
+.idea/
+.spyproject/
+.ropeproject/
+.history/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# IDE
-.vscode/
-.idea/
+*.swp
+*.swo
+*~
